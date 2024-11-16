@@ -1,182 +1,178 @@
-# AgentHub Backend
+# 🤖 AgentHub
+
+<div align="center">
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![LangChain](https://img.shields.io/badge/LangChain-Powered-orange)](https://github.com/hwchase17/langchain)
 
 A sophisticated multi-agent system built with LangChain and LangGraph for handling complex customer interactions.
 
-## Features
+[Features](#-features) •
+[Installation](#-installation) •
+[Development](#-development) •
+[Testing](#-testing) •
+[Contributing](#-contributing)
 
-- Multi-agent architecture with specialized agents:
-  - Router Agent: Smart routing based on user intent
-  - Product Agent: Product information and inquiries
-  - Technical Agent: Technical support and troubleshooting
-  - Customer Service Agent: General support and billing
-  - Human Proxy Agent: Human escalation handling
-  - Booking Agents:
-    - Flight Booking Agent
-    - Hotel Booking Agent
-    - Car Rental Agent
-    - Excursion Agent
+</div>
 
-- Advanced Features:
-  - State Management with Redis
-  - Rate Limiting
-  - Caching
-  - Error Recovery
-  - Metrics Collection
-  - Comprehensive Logging
+---
 
-## Installation
+## 🌟 Features
 
-1. Clone the repository:
+### Multi-Agent Architecture
+- 🔄 **Router Agent** - Smart routing based on user intent
+- 📦 **Product Agent** - Product information and inquiries
+- 🔧 **Technical Agent** - Technical support and troubleshooting
+- 👥 **Customer Service Agent** - General support and billing
+- 🤝 **Human Proxy Agent** - Human escalation handling
+
+### Booking Specialists
+- ✈️ Flight Booking Agent
+- 🏨 Hotel Booking Agent
+- 🚗 Car Rental Agent
+- 🎯 Excursion Agent
+
+### Technical Capabilities
+- 📊 State Management with Redis
+- ⚡ Rate Limiting & Caching
+- 🔄 Error Recovery
+- 📈 Metrics Collection
+- 📝 Comprehensive Logging
+
+## 🚀 Installation
+
+### Prerequisites
+- Python 3.8 or higher
+- Docker and Docker Compose
+- Redis
+
+### Quick Start
+
+1. **Clone the Repository**
 ```bash
 git clone https://github.com/yourusername/agenthub.git
 cd agenthub/backend
 ```
 
-2. Set up virtual environment:
+2. **Set Up Virtual Environment**
 ```bash
-# Create virtual environment
+# Create and activate virtual environment
 python -m venv venv
 
-# Activate virtual environment
-# On Windows:
+# Windows
 venv\Scripts\activate
-# On Unix or MacOS:
+
+# Unix/MacOS
 source venv/bin/activate
 
 # Upgrade pip
 python -m pip install --upgrade pip
 ```
 
-3. Install the package in development mode:
+3. **Install Dependencies**
 ```bash
-# Install in editable mode with development dependencies
 pip install -e ".[dev]"
 ```
 
-4. Set up environment variables:
+4. **Configure Environment**
 ```bash
-# Copy example environment file
 cp .env.example .env
-
-# Edit .env with your settings
-# Required variables:
-# - OPENAI_API_KEY
-# - REDIS_HOST
-# - REDIS_PASSWORD (if needed)
 ```
 
-5. Start Redis:
+Required variables in `.env`:
+```ini
+OPENAI_API_KEY=your_api_key_here
+REDIS_HOST=localhost
+REDIS_PASSWORD=your_password_here  # if needed
+```
+
+5. **Start Redis**
 ```bash
 docker-compose up -d redis
 ```
 
-## Development
+## 💻 Development
 
-1. Start development server:
+### Starting the Server
 ```bash
 uvicorn app.main:app --reload
 ```
 
-2. Access API documentation:
-```
-http://localhost:8000/docs
-```
+API documentation available at: `http://localhost:8000/docs`
 
-## Running Tests
+## 🧪 Testing
 
-The project includes comprehensive test suites:
+### Running Test Suites
 
 ```bash
-# Run all tests
+# All tests
 pytest
 
-# Run specific test categories
-pytest tests/unit/
-pytest tests/integration/
-pytest tests/performance/
-pytest tests/security/
+# Specific categories
+pytest tests/unit/          # Unit tests
+pytest tests/integration/   # Integration tests
+pytest tests/performance/  # Performance tests
+pytest tests/security/     # Security tests
 
-# Run with coverage
+# With coverage
 pytest --cov=app tests/
 ```
 
-### Test Categories
+### Test Categories Overview
 
-1. Unit Tests
-- Agent Tests: Individual agent behavior
-- Service Tests: Core service functionality
-- Base Component Tests: Shared functionality
+| Category | Description |
+|----------|-------------|
+| Unit Tests | Agent behavior, service functionality, base components |
+| Integration Tests | API endpoints, agent workflows, chat flows |
+| Performance Tests | Load testing, memory usage, rate limiting |
+| Security Tests | SQL injection, XSS prevention, input validation |
 
-2. Integration Tests
-- API Endpoint Tests
-- Agent Workflow Tests
-- Chat Flow Tests
-
-3. Performance Tests
-- Load Testing
-- Memory Usage
-- Rate Limiting
-
-4. Security Tests
-- SQL Injection Prevention
-- XSS Prevention
-- Input Validation
-- Error Message Safety
-
-## Project Structure
+## 📁 Project Structure
 
 ```
 backend/
 ├── app/
-│   ├── api/
-│   │   └── routes/
-│   ├── core/
-│   │   ├── config.py
-│   │   ├── dependencies.py
-│   │   └── middleware.py
-│   └── services/
-│       ├── agents/
-│       │   ├── booking/
-│       │   └── support/
-│       ├── cache.py
-│       ├── graph.py
-│       └── state.py
-└── tests/
-    ├── unit/
-    ├── integration/
-    ├── performance/
-    └── security/
+│   ├── api/           # API endpoints
+│   ├── core/          # Core configurations
+│   └── services/      # Business logic
+│       ├── agents/    # Agent implementations
+│       └── graph.py   # Workflow definitions
+└── tests/             # Test suites
 ```
 
-## Contributing
+## 🤝 Contributing
 
-1. Create a new virtual environment:
+1. **Set Up Development Environment**
 ```bash
 python -m venv venv
 source venv/bin/activate  # or venv\Scripts\activate on Windows
-```
-
-2. Install development dependencies:
-```bash
 pip install -e ".[dev]"
 ```
 
-3. Create a feature branch:
+2. **Create Feature Branch**
 ```bash
 git checkout -b feature/your-feature-name
 ```
 
-4. Make your changes and run tests:
+3. **Make Changes and Test**
 ```bash
-# Run tests
 pytest
-
-# Run with coverage
 pytest --cov=app tests/
 ```
 
-5. Submit a pull request
+4. **Submit Pull Request**
+- Ensure all tests pass
+- Update documentation as needed
+- Follow coding standards
+- Include test coverage for new features
 
-## License
+## 📄 License
 
-MIT License - see LICENSE file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+Made with ❤️ by the AgentHub Team
+</div>
