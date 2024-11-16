@@ -1,0 +1,633 @@
+2024-11-16 21:45:38 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 21:45:42 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.222s with status 500
+2024-11-16 21:45:42 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:45:42 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 21:45:42 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 21:45:42 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 21:45:42 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 21:45:42 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.000s with status 422
+2024-11-16 21:45:42 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 21:45:46 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 21:45:50 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.214s with status 500
+2024-11-16 21:45:50 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:45:54 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 21:45:58 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.106s with status 500
+2024-11-16 21:45:58 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:46:02 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.155s with status 500
+2024-11-16 21:46:02 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:46:06 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.051s with status 500
+2024-11-16 21:46:06 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:46:06 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 21:46:06 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 21:46:10 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.012s with status 500
+2024-11-16 21:46:10 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:46:15 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.251s with status 500
+2024-11-16 21:46:15 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:46:19 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.303s with status 500
+2024-11-16 21:46:19 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:46:23 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.393s with status 500
+2024-11-16 21:46:23 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:46:28 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.993s with status 500
+2024-11-16 21:46:28 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:46:33 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.454s with status 500
+2024-11-16 21:46:33 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:46:37 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.194s with status 500
+2024-11-16 21:46:37 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:46:41 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.520s with status 500
+2024-11-16 21:46:42 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:46:46 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.540s with status 500
+2024-11-16 21:46:46 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:46:50 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 3.930s with status 500
+2024-11-16 21:46:50 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:46:54 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.244s with status 500
+2024-11-16 21:46:54 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:46:58 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.152s with status 500
+2024-11-16 21:46:58 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:47:02 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.092s with status 500
+2024-11-16 21:47:02 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:47:07 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.653s with status 500
+2024-11-16 21:47:07 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:47:12 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.642s with status 500
+2024-11-16 21:47:12 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:47:16 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.371s with status 500
+2024-11-16 21:47:16 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:47:20 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.079s with status 500
+2024-11-16 21:47:20 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:47:24 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 3.990s with status 500
+2024-11-16 21:47:24 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:47:28 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.000s with status 500
+2024-11-16 21:47:28 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:47:32 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.143s with status 500
+2024-11-16 21:47:32 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:47:37 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.218s with status 500
+2024-11-16 21:47:37 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:47:41 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.337s with status 500
+2024-11-16 21:47:41 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:47:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 3.960s with status 500
+2024-11-16 21:47:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:47:49 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.399s with status 500
+2024-11-16 21:47:49 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:47:53 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.184s with status 500
+2024-11-16 21:48:04 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 21:48:08 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.193s with status 500
+2024-11-16 21:48:08 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:48:08 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 21:48:08 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 21:48:08 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 21:48:08 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 21:48:08 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 21:48:08 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 21:48:12 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 21:48:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.657s with status 500
+2024-11-16 21:48:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:48:21 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 21:48:25 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.707s with status 500
+2024-11-16 21:48:25 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:48:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.520s with status 500
+2024-11-16 21:48:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:48:35 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.808s with status 500
+2024-11-16 21:48:35 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:48:35 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.004s with status 400
+2024-11-16 21:48:35 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 21:48:40 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.695s with status 500
+2024-11-16 21:48:40 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:48:44 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.543s with status 500
+2024-11-16 21:48:44 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:48:49 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.617s with status 500
+2024-11-16 21:48:49 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:48:54 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.846s with status 500
+2024-11-16 21:48:54 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:48:58 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.655s with status 500
+2024-11-16 21:48:58 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:49:03 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.745s with status 500
+2024-11-16 21:49:03 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:49:08 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.613s with status 500
+2024-11-16 21:49:08 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:49:12 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.547s with status 500
+2024-11-16 21:49:12 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:49:16 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 3.887s with status 500
+2024-11-16 21:49:16 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:49:20 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 3.780s with status 500
+2024-11-16 21:49:20 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:49:24 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.223s with status 500
+2024-11-16 21:49:24 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:49:29 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.500s with status 500
+2024-11-16 21:49:29 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:49:32 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 3.722s with status 500
+2024-11-16 21:49:32 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:49:37 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.333s with status 500
+2024-11-16 21:49:37 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:49:41 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.214s with status 500
+2024-11-16 21:49:41 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:49:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.298s with status 500
+2024-11-16 21:49:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:49:49 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.302s with status 500
+2024-11-16 21:49:49 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:49:54 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.305s with status 500
+2024-11-16 21:49:54 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:49:58 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.269s with status 500
+2024-11-16 21:49:58 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:50:02 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.333s with status 500
+2024-11-16 21:50:02 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:50:06 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 3.890s with status 500
+2024-11-16 21:50:06 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:50:10 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.143s with status 500
+2024-11-16 21:50:10 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:50:14 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 3.894s with status 500
+2024-11-16 21:50:14 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:50:19 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.354s with status 500
+2024-11-16 21:50:19 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:50:23 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.376s with status 500
+2024-11-16 21:50:23 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:50:27 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.075s with status 500
+2024-11-16 21:50:27 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:50:31 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.230s with status 500
+2024-11-16 21:50:31 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:50:36 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.122s with status 500
+2024-11-16 21:50:36 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:50:40 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.213s with status 500
+2024-11-16 21:50:40 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:50:44 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.252s with status 500
+2024-11-16 21:50:44 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:50:48 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 3.930s with status 500
+2024-11-16 21:50:48 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:50:52 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.369s with status 500
+2024-11-16 21:50:52 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:50:56 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 3.857s with status 500
+2024-11-16 21:50:56 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:51:00 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.103s with status 500
+2024-11-16 21:51:00 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:51:04 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.135s with status 500
+2024-11-16 21:51:04 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:51:08 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.100s with status 500
+2024-11-16 21:51:08 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:51:13 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.296s with status 500
+2024-11-16 21:51:13 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:51:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.198s with status 500
+2024-11-16 21:51:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:51:21 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.330s with status 500
+2024-11-16 21:51:21 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:51:26 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.223s with status 500
+2024-11-16 21:51:26 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:51:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.109s with status 500
+2024-11-16 21:51:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:51:34 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.274s with status 500
+2024-11-16 21:51:34 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:51:38 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 3.930s with status 500
+2024-11-16 21:51:38 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:51:42 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.483s with status 500
+2024-11-16 21:51:42 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:51:47 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.349s with status 500
+2024-11-16 21:51:47 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:51:51 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.264s with status 500
+2024-11-16 21:51:51 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:51:55 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.167s with status 500
+2024-11-16 21:51:55 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:52:00 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.370s with status 500
+2024-11-16 21:52:00 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:52:04 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.571s with status 500
+2024-11-16 21:52:04 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:52:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.587s with status 500
+2024-11-16 21:52:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:52:13 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.644s with status 500
+2024-11-16 21:52:13 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:52:18 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.696s with status 500
+2024-11-16 21:52:18 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:52:23 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.512s with status 500
+2024-11-16 21:52:23 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:52:27 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.419s with status 500
+2024-11-16 21:52:27 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:52:32 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.654s with status 500
+2024-11-16 21:52:32 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:52:36 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.623s with status 500
+2024-11-16 21:52:36 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:52:41 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.460s with status 500
+2024-11-16 21:52:41 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:52:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.436s with status 500
+2024-11-16 21:52:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:52:50 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.505s with status 500
+2024-11-16 21:52:50 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:52:54 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.612s with status 500
+2024-11-16 21:52:54 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:52:59 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.306s with status 500
+2024-11-16 21:52:59 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:53:03 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.273s with status 500
+2024-11-16 21:53:03 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:53:07 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.258s with status 500
+2024-11-16 21:53:07 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:53:12 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.398s with status 500
+2024-11-16 21:53:12 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:53:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.968s with status 500
+2024-11-16 21:53:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:53:21 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.822s with status 500
+2024-11-16 21:53:21 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:53:26 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.833s with status 500
+2024-11-16 21:53:26 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:53:31 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.398s with status 500
+2024-11-16 21:53:31 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:53:35 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 3.982s with status 500
+2024-11-16 21:53:35 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:53:39 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.430s with status 500
+2024-11-16 21:53:39 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:53:44 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.776s with status 500
+2024-11-16 21:53:44 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:53:48 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.232s with status 500
+2024-11-16 21:53:48 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:53:52 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.340s with status 500
+2024-11-16 21:53:52 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:53:57 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.340s with status 500
+2024-11-16 21:53:57 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:54:01 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.406s with status 500
+2024-11-16 21:54:01 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:54:06 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.512s with status 500
+2024-11-16 21:54:06 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:54:10 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.041s with status 500
+2024-11-16 21:54:10 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:54:14 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.156s with status 500
+2024-11-16 21:54:14 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:54:18 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.091s with status 500
+2024-11-16 21:54:18 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:54:22 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.105s with status 500
+2024-11-16 21:54:22 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:54:26 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.147s with status 500
+2024-11-16 21:54:26 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:54:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.232s with status 500
+2024-11-16 21:54:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:54:35 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.407s with status 500
+2024-11-16 21:54:35 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:54:39 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.307s with status 500
+2024-11-16 21:54:58 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 21:55:02 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.357s with status 500
+2024-11-16 21:55:02 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:55:02 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 400
+2024-11-16 21:55:02 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 21:55:02 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 21:55:02 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 21:55:02 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 422
+2024-11-16 21:55:02 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 21:55:06 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 21:55:10 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.076s with status 500
+2024-11-16 21:55:10 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:55:14 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 21:55:18 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.152s with status 500
+2024-11-16 21:55:18 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:55:22 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.075s with status 500
+2024-11-16 21:55:22 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:55:26 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 3.941s with status 500
+2024-11-16 21:55:26 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:55:26 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 21:55:26 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 21:55:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.294s with status 500
+2024-11-16 21:55:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:55:35 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.349s with status 500
+2024-11-16 21:55:35 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:55:39 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.142s with status 500
+2024-11-16 21:55:39 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:55:43 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.222s with status 500
+2024-11-16 21:55:43 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:55:47 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 3.920s with status 500
+2024-11-16 21:55:47 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:55:52 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.384s with status 500
+2024-11-16 21:55:52 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:55:56 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.394s with status 500
+2024-11-16 21:55:56 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:56:01 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.242s with status 500
+2024-11-16 21:56:01 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:56:05 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 3.856s with status 500
+2024-11-16 21:56:05 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:56:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.271s with status 500
+2024-11-16 21:56:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:56:13 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.321s with status 500
+2024-11-16 21:56:13 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:56:18 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.424s with status 500
+2024-11-16 21:56:18 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:56:22 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.244s with status 500
+2024-11-16 21:56:22 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:56:26 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.112s with status 500
+2024-11-16 21:56:26 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:56:31 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.417s with status 500
+2024-11-16 21:56:31 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:56:35 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.232s with status 500
+2024-11-16 21:56:35 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:56:40 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.294s with status 500
+2024-11-16 21:56:40 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:56:44 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.487s with status 500
+2024-11-16 21:56:44 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:56:49 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.369s with status 500
+2024-11-16 21:56:49 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:56:53 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.309s with status 500
+2024-11-16 21:56:53 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:56:58 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.220s with status 500
+2024-11-16 21:56:58 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:57:02 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 4.074s with status 500
+2024-11-16 21:57:31 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 21:57:35 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.412s with status 500
+2024-11-16 21:57:35 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:57:35 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 400
+2024-11-16 21:57:35 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 21:57:35 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 21:57:35 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 21:57:35 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 21:57:35 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 21:57:39 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 21:57:43 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.049s with status 500
+2024-11-16 21:57:43 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:57:47 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 21:57:51 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 7.730s with status 500
+2024-11-16 21:57:51 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:57:55 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 21:57:59 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.071s with status 500
+2024-11-16 21:57:59 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:58:03 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 21:58:07 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.111s with status 500
+2024-11-16 21:58:07 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:58:07 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 21:58:07 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 21:58:11 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 21:58:15 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 7.818s with status 500
+2024-11-16 21:58:15 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:58:19 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 21:58:23 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 7.773s with status 500
+2024-11-16 21:58:23 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 21:58:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 21:58:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 21:58:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 21:58:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 21:58:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 21:58:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 21:58:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 21:58:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 21:58:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 422
+2024-11-16 21:58:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:01:20 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 22:01:24 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.261s with status 500
+2024-11-16 22:01:24 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:01:24 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 400
+2024-11-16 22:01:24 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:01:24 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:01:24 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:01:24 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:01:24 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:01:29 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 22:01:33 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.390s with status 500
+2024-11-16 22:01:33 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:01:37 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 22:01:41 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.189s with status 500
+2024-11-16 22:01:41 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:01:45 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 22:01:49 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.127s with status 500
+2024-11-16 22:01:49 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:01:53 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 22:01:57 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.254s with status 500
+2024-11-16 22:01:57 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:01:58 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 22:01:58 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:02:02 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 22:02:05 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 7.930s with status 500
+2024-11-16 22:02:05 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:02:10 - app.services.cache - ERROR - Redis get error: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2024-11-16 22:02:14 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 8.063s with status 500
+2024-11-16 22:02:14 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:02:21 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:02:21 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:02:21 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 22:02:21 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:02:21 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:02:21 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:02:21 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:02:21 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:02:21 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:02:21 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:02:32 - app.services.cache - ERROR - Redis get error: the JSON object must be str, bytes or bytearray, not coroutine
+2024-11-16 22:02:32 - app.services.cache - ERROR - Redis get error: the JSON object must be str, bytes or bytearray, not coroutine
+2024-11-16 22:02:32 - app.services.cache - ERROR - Redis get error: the JSON object must be str, bytes or bytearray, not coroutine
+2024-11-16 22:04:25 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.004s with status 500
+2024-11-16 22:04:25 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:04:25 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 400
+2024-11-16 22:04:25 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:04:25 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 422
+2024-11-16 22:04:25 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:04:25 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 422
+2024-11-16 22:04:25 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:04:25 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:04:25 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:04:25 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:04:25 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:04:25 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 500
+2024-11-16 22:04:25 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:04:25 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:04:25 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:04:25 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 22:04:25 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:04:25 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:04:25 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:04:25 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:04:25 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:04:33 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 422
+2024-11-16 22:04:33 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:04:33 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 22:04:33 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:04:33 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:04:33 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:04:33 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:04:33 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:04:33 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 422
+2024-11-16 22:04:33 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:06:19 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.005s with status 500
+2024-11-16 22:06:19 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:06:19 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 22:06:19 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:06:19 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:06:19 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:06:19 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:06:19 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:06:19 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:06:19 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:06:19 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:06:19 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:06:19 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:06:19 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:06:19 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 500
+2024-11-16 22:06:19 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:06:19 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.000s with status 400
+2024-11-16 22:06:19 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:06:20 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 500
+2024-11-16 22:06:20 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:06:20 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:06:20 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:06:27 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:06:27 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:06:27 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 22:06:27 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:06:27 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:06:27 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:06:27 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:06:27 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:06:27 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:06:27 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:07:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.004s with status 500
+2024-11-16 22:07:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:07:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 22:07:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:07:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:07:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:07:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:07:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:07:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:07:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:07:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:07:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:07:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:07:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:07:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:07:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:07:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 22:07:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:07:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 500
+2024-11-16 22:07:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:07:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 500
+2024-11-16 22:07:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:07:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:07:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:07:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 400
+2024-11-16 22:07:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:07:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.000s with status 422
+2024-11-16 22:07:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:07:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:07:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:07:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:07:45 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:09:28 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.004s with status 500
+2024-11-16 22:09:29 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:09:29 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 400
+2024-11-16 22:09:29 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:09:29 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 422
+2024-11-16 22:09:29 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:09:29 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:09:29 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:09:29 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 500
+2024-11-16 22:09:29 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:09:29 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:09:29 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:09:29 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:09:29 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:09:29 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 500
+2024-11-16 22:09:29 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:09:29 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 22:09:29 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:09:29 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:09:29 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:09:29 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:09:29 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:09:29 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:09:29 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:09:29 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 400
+2024-11-16 22:09:29 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:09:29 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:09:29 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:09:29 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:09:29 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:09:29 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:09:29 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:10:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.005s with status 500
+2024-11-16 22:10:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:10:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 22:10:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:10:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:10:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:10:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:10:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:10:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 500
+2024-11-16 22:10:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:10:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:10:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:10:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 500
+2024-11-16 22:10:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:10:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:10:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:10:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 400
+2024-11-16 22:10:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:10:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 200
+2024-11-16 22:10:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 200 OK"
+2024-11-16 22:10:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 200
+2024-11-16 22:10:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 200 OK"
+2024-11-16 22:10:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:10:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:10:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:10:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:10:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 400
+2024-11-16 22:10:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:10:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.000s with status 422
+2024-11-16 22:10:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:10:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:10:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:10:30 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:10:30 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:12:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.005s with status 500
+2024-11-16 22:12:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:12:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 22:12:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:12:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:12:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:12:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:12:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:12:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:12:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:12:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:12:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:12:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 200
+2024-11-16 22:12:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 200 OK"
+2024-11-16 22:12:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.058s with status 200
+2024-11-16 22:12:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 200 OK"
+2024-11-16 22:12:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 200
+2024-11-16 22:12:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 200 OK"
+2024-11-16 22:12:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.003s with status 400
+2024-11-16 22:12:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:12:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 200
+2024-11-16 22:12:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 200 OK"
+2024-11-16 22:12:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 200
+2024-11-16 22:12:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 200 OK"
+2024-11-16 22:12:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:12:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:12:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:12:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:12:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 22:12:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:12:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:12:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:12:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 422
+2024-11-16 22:12:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:12:09 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:12:09 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:13:16 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.004s with status 500
+2024-11-16 22:13:16 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:13:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 400
+2024-11-16 22:13:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:13:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:13:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:13:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:13:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:13:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 500
+2024-11-16 22:13:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:13:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 500
+2024-11-16 22:13:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:13:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 500
+2024-11-16 22:13:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:13:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 500
+2024-11-16 22:13:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:13:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 400
+2024-11-16 22:13:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:13:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 500
+2024-11-16 22:13:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:13:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 500
+2024-11-16 22:13:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 500 Internal Server Error"
+2024-11-16 22:13:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:13:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:13:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 400
+2024-11-16 22:13:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 400 Bad Request"
+2024-11-16 22:13:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 422
+2024-11-16 22:13:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:13:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.002s with status 422
+2024-11-16 22:13:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-16 22:13:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
+2024-11-16 22:13:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
