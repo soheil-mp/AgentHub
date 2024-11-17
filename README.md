@@ -44,8 +44,8 @@ A sophisticated multi-agent system built with LangChain and LangGraph for handli
 
 ### Prerequisites
 - Python 3.8 or higher
-- Docker and Docker Compose
-- Redis
+- Docker Desktop
+- Git
 
 ### Quick Start
 
@@ -57,13 +57,13 @@ cd agenthub/backend
 
 2. **Set Up Virtual Environment**
 ```bash
-# Create and activate virtual environment
+# Create virtual environment
 python -m venv venv
 
-# Windows
+# Activate virtual environment
+# On Windows:
 venv\Scripts\activate
-
-# Unix/MacOS
+# On Unix/MacOS:
 source venv/bin/activate
 
 # Upgrade pip
@@ -72,25 +72,48 @@ python -m pip install --upgrade pip
 
 3. **Install Dependencies**
 ```bash
+# Install project with development dependencies
 pip install -e ".[dev]"
 ```
 
 4. **Configure Environment**
 ```bash
+# Copy example environment file
 cp .env.example .env
+
+# Edit .env file with your settings:
+# - Add your OpenAI API key
+# - Configure Redis if needed
+# - Adjust other settings as necessary
 ```
 
-Required variables in `.env`:
-```ini
-OPENAI_API_KEY=your_api_key_here
-REDIS_HOST=localhost
-REDIS_PASSWORD=your_password_here  # if needed
-```
+5. **Start Services**
 
-5. **Start Redis**
+First, ensure Docker Desktop is running, then:
 ```bash
+# Start Redis
 docker-compose up -d redis
+
+# Verify Redis is running
+docker-compose ps
 ```
+
+6. **Start the API Server**
+```bash
+# Make sure you're in the virtual environment
+# Windows: venv\Scripts\activate
+# Unix/MacOS: source venv/bin/activate
+
+# Start the server with auto-reload
+uvicorn app.main:app --reload
+```
+
+### Verify Installation
+
+After starting the server, you can access:
+- API Documentation: http://localhost:8000/docs
+- API Information: http://localhost:8000/api
+- Health Check: http://localhost:8000/api/v1/health
 
 ## 💻 Development
 
@@ -170,9 +193,3 @@ pytest --cov=app tests/
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-<div align="center">
-Made with ❤️ by the AgentHub Team
-</div>

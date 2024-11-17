@@ -631,3 +631,31 @@
 2024-11-16 22:13:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
 2024-11-16 22:13:17 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.001s with status 422
 2024-11-16 22:13:17 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/chat/ "HTTP/1.1 422 Unprocessable Entity"
+2024-11-17 12:19:44 - app.services.cache - INFO - Successfully connected to Redis
+2024-11-17 12:19:44 - app.main - INFO - Redis connection initialized successfully
+2024-11-17 12:20:14 - app.core.middleware - INFO - GET / completed in 0.002s with status 404
+2024-11-17 12:21:01 - app.main - INFO - Redis connection closed successfully
+2024-11-17 12:21:08 - app.core.middleware - INFO - GET / completed in 0.000s with status 307
+2024-11-17 12:21:08 - app.core.middleware - INFO - GET /docs completed in 0.001s with status 200
+2024-11-17 12:21:09 - app.core.middleware - INFO - GET /api/v1/openapi.json completed in 0.007s with status 200
+2024-11-17 12:27:39 - app.core.middleware - INFO - GET /api/v1/openapi.json completed in 0.000s with status 200
+2024-11-17 12:29:55 - app.core.middleware - INFO - GET /docs completed in 0.000s with status 200
+2024-11-17 12:29:55 - app.core.middleware - INFO - GET /api/v1/openapi.json completed in 0.006s with status 200
+2024-11-17 12:34:21 - app.core.middleware - INFO - POST /api/v1/chat completed in 0.000s with status 307
+2024-11-17 12:34:21 - app.services.state - ERROR - Error getting state: 'NoneType' object has no attribute 'get'
+2024-11-17 12:34:26 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 5.558s with status 500
+2024-11-17 12:35:07 - app.core.middleware - INFO - POST /api/v1/chat completed in 0.001s with status 307
+2024-11-17 12:35:07 - app.services.state - ERROR - Error getting state: 'NoneType' object has no attribute 'get'
+2024-11-17 12:35:12 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 5.264s with status 500
+2024-11-17 12:36:31 - app.core.middleware - INFO - POST /api/v1/chat completed in 0.000s with status 307
+2024-11-17 12:36:31 - app.services.state - ERROR - Error getting state: 'NoneType' object has no attribute 'get'
+2024-11-17 12:36:37 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 5.520s with status 500
+2024-11-17 12:37:47 - app.services.state - ERROR - Error getting state: 'NoneType' object has no attribute 'get'
+2024-11-17 12:37:53 - app.api.routes.chat - ERROR - Error processing chat request: StateGraph.add_edge() got an unexpected keyword argument 'condition'
+2024-11-17 12:37:53 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 5.499s with status 500
+2024-11-17 12:44:45 - app.services.state - ERROR - Error getting state: 'NoneType' object has no attribute 'get'
+2024-11-17 12:44:45 - app.api.routes.chat - ERROR - Error processing chat request: BaseAgent.__init__() got an unexpected keyword argument 'system_prompt'
+2024-11-17 12:44:45 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.003s with status 500
+2024-11-17 12:45:41 - app.services.state - ERROR - Error getting state: 'NoneType' object has no attribute 'get'
+2024-11-17 12:45:41 - app.api.routes.chat - ERROR - Error processing chat request: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+2024-11-17 12:45:41 - app.core.middleware - INFO - POST /api/v1/chat/ completed in 0.003s with status 500

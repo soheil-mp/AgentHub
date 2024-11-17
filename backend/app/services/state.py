@@ -1,7 +1,6 @@
-from typing import Dict, Any, Optional
-from datetime import datetime
+from typing import Optional, Dict, Any
+from app.services.cache import get_cache
 import json
-from app.services.cache import cache
 import logging
 
 logger = logging.getLogger(__name__)
@@ -9,64 +8,44 @@ logger = logging.getLogger(__name__)
 class StateManager:
     def __init__(self, user_id: str):
         self.user_id = user_id
-        self._state_key = f"state:{user_id}"
-        self._history_key = f"history:{user_id}"
+        self._cache = None
 
-    async def get_state(self) -> Dict[str, Any]:
-        """Get current state for user"""
+    async def _get_cache(self):
+        """Lazy initialization of cache connection."""
+        if self._cache is None:
+            self._cache = await get_cache()
+        return self._cache
+
+    def _get_key(self) -> str:
+        """Generate cache key for user state."""
+        return f"state:{self.user_id}"
+
+    async def get_state(self) -> Optional[Dict[str, Any]]:
+        """Get current state for user."""
         try:
-            state = cache.get(self._state_key)
-            return state if state else {
-                "messages": [],
-                "next": "ROUTER",
-                "context": {"user_id": self.user_id},
-                "dialog_state": []
-            }
+            cache = await self._get_cache()
+            state = await cache.get(self._get_key())
+            return state
         except Exception as e:
-            logger.error(f"Error getting state: {e}")
-            return self._get_default_state()
+            logger.error(f"Error getting state for user {self.user_id}: {e}")
+            return None
 
     async def update_state(self, state: Dict[str, Any]) -> bool:
-        """Update state and save to history"""
+        """Update state for user."""
         try:
-            # Save current state
-            success = cache.set(self._state_key, state)
-            
-            # Add to history with timestamp
-            history_entry = {
-                "timestamp": datetime.utcnow().isoformat(),
-                "state": state
-            }
-            current_history = cache.get(self._history_key) or []
-            current_history.append(history_entry)
-            
-            # Keep last 10 state changes
-            if len(current_history) > 10:
-                current_history = current_history[-10:]
-            
-            cache.set(self._history_key, current_history)
-            
+            cache = await self._get_cache()
+            success = await cache.set(self._get_key(), state)
             return success
         except Exception as e:
-            logger.error(f"Error updating state: {e}")
+            logger.error(f"Error updating state for user {self.user_id}: {e}")
             return False
 
     async def clear_state(self) -> bool:
-        """Clear current state"""
+        """Clear state for user."""
         try:
-            return (
-                cache.delete(self._state_key) and
-                cache.delete(self._history_key)
-            )
+            cache = await self._get_cache()
+            success = await cache.delete(self._get_key())
+            return success
         except Exception as e:
-            logger.error(f"Error clearing state: {e}")
-            return False
-
-    def _get_default_state(self) -> Dict[str, Any]:
-        """Return default state structure"""
-        return {
-            "messages": [],
-            "next": "ROUTER",
-            "context": {"user_id": self.user_id},
-            "dialog_state": []
-        } 
+            logger.error(f"Error clearing state for user {self.user_id}: {e}")
+            return False 

@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Redis
+dump.rdb
+*.rdb
+
+# Coverage
+.coverage
+coverage.xml
+htmlcov/
+
+# Docker
+.docker/
+
+# Testing
+.pytest_cache/
+.coverage
+coverage.xml 

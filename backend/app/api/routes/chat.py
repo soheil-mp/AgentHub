@@ -1,12 +1,18 @@
-from fastapi import APIRouter, HTTPException, Depends, status
+from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 from typing import List, Optional, Dict, Any
 from app.services.graph import get_chat_graph, State
 from app.services.state import StateManager
-from app.core.config import get_settings
-from langchain_core.messages import HumanMessage, AIMessage
+from app.core.config import get_settings, settings
+from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
+from langchain_openai import ChatOpenAI
+from app.core.exceptions import ValidationError, AgentError
+from app.services.rate_limit import RateLimiter
+import logging
 
+logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/chat", tags=["chat"])
+rate_limiter = RateLimiter()
 
 class ChatMessage(BaseModel):
     role: str
@@ -22,69 +28,81 @@ class ChatResponse(BaseModel):
     requires_action: Optional[bool] = False
     action_type: Optional[str] = None
 
-class DetailedError(BaseModel):
-    code: str
-    message: str
-    details: Optional[Dict[str, Any]] = None
-
-@router.post("/", response_model=ChatResponse)
-async def chat(request: ChatRequest, settings = Depends(get_settings)):
-    if not request.messages:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=DetailedError(
-                code="NO_MESSAGES",
-                message="At least one message is required"
-            ).dict()
-        )
-    
+def get_chat_model():
+    """Initialize and return the chat model."""
     try:
-        # Initialize state manager
-        state_manager = StateManager(request.user_id)
-        
-        # Get current state
-        current_state = await state_manager.get_state()
-        
-        # Convert new messages to LangChain format
-        new_messages = []
-        for msg in request.messages:
-            if msg.role == "user":
-                new_messages.append(HumanMessage(content=msg.content))
-            else:
-                new_messages.append(AIMessage(content=msg.content))
-        
-        # Update state with new messages
-        current_state["messages"].extend(new_messages)
-        current_state["context"].update(request.context)
-        
-        # Get graph and process
-        graph = get_chat_graph()
-        result = await graph.ainvoke(current_state)
-        
-        # Save updated state
-        await state_manager.update_state(result)
-        
-        # Convert result back to API format
-        response_messages = []
-        for msg in result["messages"]:
-            if isinstance(msg, (HumanMessage, AIMessage)):
-                role = "user" if isinstance(msg, HumanMessage) else "assistant"
-                response_messages.append(
-                    ChatMessage(role=role, content=msg.content)
-                )
-        
-        return ChatResponse(
-            messages=response_messages,
-            requires_action=result.get("requires_action", False),
-            action_type=result.get("action_type")
+        model = ChatOpenAI(
+            model=settings.DEFAULT_MODEL,
+            temperature=settings.DEFAULT_TEMPERATURE,
+            api_key=settings.OPENAI_API_KEY
         )
-        
+        return model
     except Exception as e:
+        logger.error(f"Error initializing chat model: {e}")
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=DetailedError(
-                code="PROCESSING_ERROR",
-                message="Error processing chat request",
-                details={"error": str(e)}
-            ).dict()
+            detail={
+                "code": "MODEL_INITIALIZATION_ERROR",
+                "message": "Failed to initialize chat model"
+            }
+        )
+
+@router.post("/", response_model=ChatResponse)
+async def chat(
+    request: ChatRequest,
+    rate_limit: bool = Depends(rate_limiter.check_rate_limit)
+):
+    try:
+        # Initialize chat model
+        chat_model = get_chat_model()
+
+        # Validate messages
+        if not request.messages:
+            raise ValidationError(
+                message="No messages provided",
+                details={"code": "NO_MESSAGES"}
+            )
+
+        # Convert messages to LangChain format
+        langchain_messages = []
+        for msg in request.messages:
+            if msg.role == "user":
+                langchain_messages.append(HumanMessage(content=msg.content))
+            elif msg.role == "assistant":
+                langchain_messages.append(AIMessage(content=msg.content))
+            elif msg.role == "system":
+                langchain_messages.append(SystemMessage(content=msg.content))
+
+        # Get response from model
+        response = await chat_model.ainvoke(langchain_messages)
+
+        # Format response
+        result = {
+            "messages": [
+                *request.messages,
+                ChatMessage(role="assistant", content=response.content)
+            ],
+            "requires_action": False
+        }
+
+        # Store in state if needed
+        state_manager = StateManager(request.user_id)
+        await state_manager.update_state({
+            "messages": [(msg.role, msg.content) for msg in result["messages"]],
+            "context": request.context
+        })
+
+        return result
+
+    except ValidationError as e:
+        logger.warning(f"Validation error: {e}")
+        raise HTTPException(
+            status_code=e.status_code,
+            detail={"code": e.code, "message": str(e), **e.details}
+        )
+    except Exception as e:
+        logger.error(f"Unexpected error in chat endpoint: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail={"code": "INTERNAL_ERROR", "message": str(e)}
         ) 
