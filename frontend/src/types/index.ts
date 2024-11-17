@@ -4,8 +4,17 @@ export interface Message {
   timestamp: string;
 }
 
+export interface GraphState {
+  current_node: string;
+  next_node: string;
+  nodes: string[];
+  edges: [string, string][];
+  requires_action: boolean;
+}
+
 export interface ChatState {
   messages: Message[];
   isLoading: boolean;
   error: string | null;
+  graphState: GraphState | null;
 } 

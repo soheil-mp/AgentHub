@@ -24,12 +24,16 @@ export default function ChatInput({ onSend, isLoading }: ChatInputProps) {
         onChange={(e) => setMessage(e.target.value)}
         placeholder="Type your message..."
         disabled={isLoading}
-        className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="flex-1 rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       <button
         type="submit"
         disabled={isLoading || !message.trim()}
-        className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50"
+        className={`rounded-lg px-6 py-2 font-medium text-white ${
+          isLoading || !message.trim()
+            ? 'bg-gray-400 cursor-not-allowed'
+            : 'bg-blue-500 hover:bg-blue-600'
+        }`}
       >
         {isLoading ? 'Sending...' : 'Send'}
       </button>

@@ -3,14 +3,20 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "typescript": "^4.9.5",
+        "@reactflow/background": "^11.3.14",
+        "@reactflow/controls": "^11.2.14",
+        "@reactflow/core": "^11.11.4",
+        "@reactflow/minimap": "^11.7.14",
+        "@reactflow/node-resizer": "^2.2.14",
         "@types/react": "^18.2.0",
         "@types/react-dom": "^18.2.0",
-        "tailwindcss": "^3.3.0",
         "autoprefixer": "^10.4.0",
-        "postcss": "^8.4.0"
+        "postcss": "^8.4.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "reactflow": "^11.11.4",
+        "tailwindcss": "^3.3.0",
+        "typescript": "^4.9.5"
     },
     "scripts": {
         "start": "vite",

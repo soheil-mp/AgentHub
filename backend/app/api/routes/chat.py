@@ -1,13 +1,14 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
-from typing import List, Optional, Dict, Any
-from app.services.graph import get_chat_graph, State
+from typing import List, Optional, Dict, Any, Tuple
+from app.services.graph import get_chat_graph, State, visualize_graph
 from app.services.state import StateManager
 from app.core.config import get_settings, settings
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 from app.core.exceptions import ValidationError, AgentError
 from app.services.rate_limit import RateLimiter
+from fastapi.responses import JSONResponse
 import logging
 
 logger = logging.getLogger(__name__)
@@ -23,10 +24,18 @@ class ChatRequest(BaseModel):
     user_id: str
     context: Optional[Dict[str, Any]] = Field(default_factory=dict)
 
+class GraphState(BaseModel):
+    current_node: str
+    next_node: str
+    nodes: List[str]
+    edges: List[Tuple[str, str]]
+    requires_action: bool
+
 class ChatResponse(BaseModel):
     messages: List[ChatMessage]
     requires_action: Optional[bool] = False
     action_type: Optional[str] = None
+    graph_state: Optional[GraphState] = None
 
 def get_chat_model():
     """Initialize and return the chat model."""
@@ -105,4 +114,20 @@ async def chat(
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail={"code": "INTERNAL_ERROR", "message": str(e)}
+        ) 
+
+@router.get("/visualization")
+async def get_graph_visualization():
+    """Get the current graph visualization"""
+    try:
+        dot = visualize_graph()
+        return JSONResponse({
+            "dot": dot.source,
+            "format": "dot"
+        })
+    except Exception as e:
+        logger.error(f"Error generating graph visualization: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Failed to generate graph visualization"
         ) 
