@@ -16,8 +16,27 @@ services:
     networks:
       - agenthub_network
 
+  mongodb:
+    image: mongo:6-jammy
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password123
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      - agenthub_network
+
 volumes:
   redis_data:
+    driver: local
+  mongodb_data:
     driver: local
 
 networks:

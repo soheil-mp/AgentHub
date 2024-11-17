@@ -41,6 +41,10 @@ class Settings(BaseSettings):
     MAX_RETRIES: int = 3
     CACHE_TTL: int = 3600
     
+    # MongoDB settings
+    MONGODB_URL: str = "mongodb://admin:password123@localhost:27017"
+    MONGODB_DB_NAME: str = "agenthub"
+    
     model_config = {
         "env_file": ".env",
         "case_sensitive": True,

@@ -3,6 +3,7 @@ from app.api.routes import chat
 from app.api.middleware import setup_middleware
 from app.core.config import settings
 from app.services.cache import get_cache
+from app.services.database import mongodb
 import logging
 
 # Configure logging
@@ -32,9 +33,14 @@ async def startup_event():
         cache = await get_cache()
         app.state.cache = cache
         logger.info("Cache service initialized")
+        
+        # Initialize MongoDB
+        await mongodb.connect()
+        logger.info("MongoDB connection initialized")
+        
     except Exception as e:
         logger.error(f"Error initializing services: {e}")
-        # Don't raise - allow app to start without cache
+        # Don't raise - allow app to start without cache/db
 
 @app.on_event("shutdown")
 async def shutdown_event():
@@ -43,5 +49,7 @@ async def shutdown_event():
         if hasattr(app.state, 'cache'):
             await app.state.cache.close()
             logger.info("Cache connection closed")
+        await mongodb.close()
+        logger.info("MongoDB connection closed")
     except Exception as e:
         logger.error(f"Error during shutdown: {e}") 

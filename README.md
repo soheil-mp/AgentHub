@@ -5,6 +5,8 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![LangChain](https://img.shields.io/badge/LangChain-Powered-orange)](https://github.com/hwchase17/langchain)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Ready-green)](https://www.mongodb.com/)
+[![Redis](https://img.shields.io/badge/Redis-Enabled-red)](https://redis.io/)
 
 A sophisticated multi-agent system built with LangChain and LangGraph for handling complex customer interactions.
 
@@ -28,17 +30,36 @@ A sophisticated multi-agent system built with LangChain and LangGraph for handli
 - 🤝 **Human Proxy Agent** - Human escalation handling
 
 ### Booking Specialists
-- ✈️ Flight Booking Agent
-- 🏨 Hotel Booking Agent
-- 🚗 Car Rental Agent
-- 🎯 Excursion Agent
+- ✈️ **Flight Booking Agent** - Air travel reservations
+- 🏨 **Hotel Booking Agent** - Accommodation bookings
+- 🚗 **Car Rental Agent** - Vehicle rentals
+- 🎯 **Excursion Agent** - Activity bookings
 
 ### Technical Capabilities
-- 📊 State Management with Redis
-- ⚡ Rate Limiting & Caching
-- 🔄 Error Recovery
-- 📈 Metrics Collection
-- 📝 Comprehensive Logging
+- 📊 **State Management**
+  - Redis for caching and session state
+  - MongoDB for persistent storage
+  - Distributed state handling
+- ⚡ **Performance**
+  - Rate limiting & request throttling
+  - Distributed caching
+  - Async operations
+  - Load balancing
+- 🔄 **Reliability**
+  - Error recovery mechanisms
+  - Automatic retries
+  - Graceful degradation
+  - Circuit breakers
+- 📈 **Observability**
+  - Comprehensive logging
+  - Performance metrics
+  - Health monitoring
+  - Tracing capabilities
+- 🔒 **Security**
+  - API key validation
+  - Input sanitization
+  - Rate limiting
+  - Data encryption
 
 ## 🚀 Installation
 
@@ -83,28 +104,21 @@ cp .env.example .env
 
 # Edit .env file with your settings:
 # - Add your OpenAI API key
-# - Configure Redis if needed
+# - Configure Redis and MongoDB settings
 # - Adjust other settings as necessary
 ```
 
 5. **Start Services**
-
-First, ensure Docker Desktop is running, then:
 ```bash
-# Start Redis
-docker-compose up -d redis
+# Start Redis and MongoDB
+docker-compose up -d
 
-# Verify Redis is running
+# Verify services are running
 docker-compose ps
 ```
 
 6. **Start the API Server**
 ```bash
-# Make sure you're in the virtual environment
-# Windows: venv\Scripts\activate
-# Unix/MacOS: source venv/bin/activate
-
-# Start the server with auto-reload
 uvicorn app.main:app --reload
 ```
 
@@ -112,84 +126,128 @@ uvicorn app.main:app --reload
 
 After starting the server, you can access:
 - API Documentation: http://localhost:8000/docs
-- API Information: http://localhost:8000/api
+- API Information: http://localhost:8000/redoc
 - Health Check: http://localhost:8000/api/v1/health
 
 ## 💻 Development
 
-### Starting the Server
-```bash
-uvicorn app.main:app --reload
-```
-
-API documentation available at: `http://localhost:8000/docs`
-
-## 🧪 Testing
-
-### Running Test Suites
-
-```bash
-# All tests
-pytest
-
-# Specific categories
-pytest tests/unit/          # Unit tests
-pytest tests/integration/   # Integration tests
-pytest tests/performance/  # Performance tests
-pytest tests/security/     # Security tests
-
-# With coverage
-pytest --cov=app tests/
-```
-
-### Test Categories Overview
-
-| Category | Description |
-|----------|-------------|
-| Unit Tests | Agent behavior, service functionality, base components |
-| Integration Tests | API endpoints, agent workflows, chat flows |
-| Performance Tests | Load testing, memory usage, rate limiting |
-| Security Tests | SQL injection, XSS prevention, input validation |
-
-## 📁 Project Structure
-
+### Project Structure
 ```
 backend/
 ├── app/
-│   ├── api/           # API endpoints
+│   ├── api/           # API endpoints and routes
+│   │   ├── routes/    # Route definitions
+│   │   └── middleware/# Custom middleware
 │   ├── core/          # Core configurations
+│   │   ├── config.py  # Settings management
+│   │   └── security.py# Security utilities
 │   └── services/      # Business logic
 │       ├── agents/    # Agent implementations
+│       │   ├── base.py       # Base agent class
+│       │   ├── router.py     # Router agent
+│       │   ├── support/      # Support agents
+│       │   └── booking/      # Booking agents
+│       ├── cache.py   # Redis service
+│       ├── database.py# MongoDB service
 │       └── graph.py   # Workflow definitions
-└── tests/             # Test suites
+├── tests/             # Test suites
+│   ├── unit/         # Unit tests
+│   ├── integration/  # Integration tests
+│   └── performance/  # Performance tests
+└── docker-compose.yml # Service definitions
 ```
+
+### Database Schema
+- **MongoDB Collections**
+  - `users`: User profiles and preferences
+  - `conversations`: Chat history and context
+  - `bookings`: Reservation details
+  - `metrics`: Performance and usage data
+
+### Key Components
+- **Redis**: Session management and caching
+- **MongoDB**: Persistent data storage
+- **FastAPI**: API framework
+- **LangChain**: Agent orchestration
+- **Docker**: Service containerization
+
+## 🧪 Testing
+
+### Running Tests
+```bash
+# Run all tests
+pytest
+
+# Run specific test categories
+pytest tests/unit/          # Unit tests
+pytest tests/integration/   # Integration tests
+pytest tests/performance/  # Performance tests
+
+# Run with coverage
+pytest --cov=app tests/
+```
+
+### Test Categories
+
+| Category | Description | Examples |
+|----------|-------------|----------|
+| Unit Tests | Individual components | Agent behavior, Service functions |
+| Integration | Component interaction | API endpoints, Workflows |
+| Performance | System efficiency | Load testing, Response times |
+| Security | System protection | Input validation, Auth checks |
+
+## 🔧 Maintenance
+
+### Health Monitoring
+- **System Health**: `GET /api/v1/health`
+- **Database Status**: `GET /api/v1/health/db`
+- **Cache Status**: `GET /api/v1/health/cache`
+- **Agent Status**: `GET /api/v1/health/agents`
+
+### Logging
+- Application logs: `docker-compose logs app`
+- MongoDB logs: `docker-compose logs mongodb`
+- Redis logs: `docker-compose logs redis`
+
+### Metrics
+- System metrics: `GET /api/v1/metrics`
+- Agent performance: `GET /api/v1/metrics/agents`
+- Response times: `GET /api/v1/metrics/performance`
 
 ## 🤝 Contributing
 
-1. **Set Up Development Environment**
+1. **Fork and Clone**
+```bash
+git clone https://github.com/yourusername/agenthub.git
+cd agenthub
+```
+
+2. **Set Up Development Environment**
 ```bash
 python -m venv venv
 source venv/bin/activate  # or venv\Scripts\activate on Windows
 pip install -e ".[dev]"
 ```
 
-2. **Create Feature Branch**
-```bash
-git checkout -b feature/your-feature-name
-```
-
-3. **Make Changes and Test**
-```bash
-pytest
-pytest --cov=app tests/
-```
+3. **Development Guidelines**
+- Follow PEP 8 style guide
+- Add tests for new features
+- Update documentation
+- Use type hints
+- Add meaningful commit messages
 
 4. **Submit Pull Request**
 - Ensure all tests pass
-- Update documentation as needed
-- Follow coding standards
-- Include test coverage for new features
+- Update documentation
+- Follow code style guidelines
+- Include test coverage
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- LangChain team for the excellent framework
+- OpenAI for their powerful language models
+- The open-source community for their contributions

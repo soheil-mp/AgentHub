@@ -84,24 +84,55 @@ export default function ChatInterface({ userId }: ChatInterfaceProps) {
   }, [messages]);
 
   return (
-    <div className="flex flex-col h-screen max-w-4xl mx-auto">
-      {/* Graph Visualization Section */}
-      <div className="p-4 border-b">
-        <GraphVisualizer graphState={graphState} />
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-[calc(100vh-8rem)]">
+      {/* Chat Column */}
+      <div className="flex flex-col bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+        {/* Chat Header */}
+        <div className="p-4 border-b border-gray-200 bg-gray-50">
+          <h2 className="text-lg font-semibold text-gray-700">Chat Interface</h2>
+          <p className="text-sm text-gray-500">
+            {messages.length} messages • {isLoading ? 'Typing...' : 'Online'}
+          </p>
+        </div>
+
+        {/* Messages Section */}
+        <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50/50">
+          <MessageList messages={messages} />
+          <div ref={messagesEndRef} />
+        </div>
+        
+        {/* Input Section */}
+        <div className="p-4 border-t border-gray-200 bg-white">
+          <ChatInput 
+            onSend={sendMessage} 
+            isLoading={isLoading} 
+          />
+        </div>
       </div>
-      
-      {/* Messages Section */}
-      <div className="flex-1 overflow-y-auto p-4">
-        <MessageList messages={messages} />
-        <div ref={messagesEndRef} />
-      </div>
-      
-      {/* Input Section */}
-      <div className="p-4 border-t">
-        <ChatInput 
-          onSend={sendMessage} 
-          isLoading={isLoading} 
-        />
+
+      {/* Graph Column */}
+      <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+        <div className="p-4 border-b border-gray-200 bg-gray-50">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-lg font-semibold text-gray-700">Agent Workflow</h2>
+              <p className="text-sm text-gray-500">
+                Active: <span className="font-medium text-blue-600">{graphState.current_node}</span>
+                {graphState.next_node && 
+                  <span> → <span className="text-gray-600">{graphState.next_node}</span></span>
+                }
+              </p>
+            </div>
+            {graphState.requires_action && (
+              <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">
+                Requires Action
+              </span>
+            )}
+          </div>
+        </div>
+        <div className="p-4 h-[calc(100%-5rem)]">
+          <GraphVisualizer graphState={graphState} />
+        </div>
       </div>
     </div>
   );

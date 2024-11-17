@@ -10,6 +10,8 @@ from app.services.cache import RedisCache, cache
 from app.services.state import StateManager
 from app.services.graph import get_chat_graph
 from unittest.mock import patch
+from motor.motor_asyncio import AsyncIOMotorClient
+from app.services.database import mongodb
 
 @pytest.fixture
 def test_settings() -> Settings:
@@ -129,4 +131,23 @@ def mock_llm_response():
 @pytest.fixture
 def mock_llm_string_response():
     """Mock LLM string response for testing."""
-    return "This is a mock LLM response" 
+    return "This is a mock LLM response"
+
+@pytest.fixture
+async def test_mongodb():
+    """Test MongoDB fixture."""
+    # Use a separate test database
+    test_settings = Settings(
+        MONGODB_URL="mongodb://admin:password123@localhost:27017",
+        MONGODB_DB_NAME="agenthub_test"
+    )
+    
+    # Connect to test database
+    mongodb.client = AsyncIOMotorClient(test_settings.MONGODB_URL)
+    mongodb.db = mongodb.client[test_settings.MONGODB_DB_NAME]
+    
+    yield mongodb.db
+    
+    # Cleanup after tests
+    await mongodb.db.drop_database()
+    await mongodb.close() 
