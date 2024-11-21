@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![CC0 License](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](https://choosealicense.com/licenses/cc0-1.0/)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![LangChain](https://img.shields.io/badge/LangChain-Powered-orange)](https://github.com/hwchase17/langchain)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Ready-green)](https://www.mongodb.com/)
@@ -133,28 +133,44 @@ After starting the server, you can access:
 
 ### Project Structure
 ```
-backend/
-├── app/
-│   ├── api/           # API endpoints and routes
-│   │   ├── routes/    # Route definitions
-│   │   └── middleware/# Custom middleware
-│   ├── core/          # Core configurations
-│   │   ├── config.py  # Settings management
-│   │   └── security.py# Security utilities
-│   └── services/      # Business logic
-│       ├── agents/    # Agent implementations
-│       │   ├── base.py       # Base agent class
-│       │   ├── router.py     # Router agent
-│       │   ├── support/      # Support agents
-│       │   └── booking/      # Booking agents
-│       ├── cache.py   # Redis service
-│       ├── database.py# MongoDB service
-│       └── graph.py   # Workflow definitions
-├── tests/             # Test suites
-│   ├── unit/         # Unit tests
-│   ├── integration/  # Integration tests
-│   └── performance/  # Performance tests
-└── docker-compose.yml # Service definitions
+.
+├── backend/
+│   ├── app/
+│   │   ├── api/              # API endpoints and routes
+│   │   │   ├── routes/       # Route definitions
+│   │   │   └── middleware/   # Custom middleware
+│   │   ├── core/             # Core configurations
+│   │   │   ├── config.py     # Settings management
+│   │   │   └── exceptions.py # Error handling
+│   │   ├── schemas/          # Data models and schemas
+│   │   └── services/         # Business logic
+│   │       ├── agents/       # Agent implementations
+│   │       │   ├── base.py   # Base agent class
+│   │       │   ├── booking/  # Booking-related agents
+│   │       │   ├── support/  # Support-related agents
+│   │       │   └── router.py # Router agent
+│   │       ├── cache.py      # Redis service
+│   │       ├── database.py   # MongoDB service
+│   │       └── graph.py      # Workflow definitions
+│   ├── tests/                # Test suites
+│   │   ├── unit/            # Unit tests
+│   │   ├── integration/     # Integration tests
+│   │   ├── performance/     # Performance tests
+│   │   └── security/        # Security tests
+│   └── docker-compose.yml    # Service definitions
+│
+└── frontend/
+    ├── public/              # Static assets
+    ├── src/
+    │   ├── components/      # React components
+    │   │   ├── Chat/       # Chat interface components
+    │   │   └── Graph/      # Graph visualization components
+    │   ├── types/          # TypeScript type definitions
+    │   ├── App.tsx         # Root component
+    │   └── main.tsx        # Entry point
+    ├── index.html          # HTML template
+    ├── tailwind.config.js  # Tailwind CSS configuration
+    └── package.json        # Frontend dependencies
 ```
 
 ### Database Schema
@@ -244,7 +260,7 @@ pip install -e ".[dev]"
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the CC0 1.0 Universal License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
