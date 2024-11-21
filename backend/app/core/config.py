@@ -17,7 +17,7 @@ class Settings(BaseSettings):
     OPENAI_MODEL: str = Field("gpt-4-turbo-preview", description="OpenAI model to use")
 
     # Redis Configuration
-    REDIS_ENABLED: bool = Field(True, description="Enable Redis cache")
+    REDIS_ENABLED: bool = False
     REDIS_HOST: str = Field("localhost", description="Redis host")
     REDIS_PORT: int = Field(6379, description="Redis port")
     REDIS_DB: int = Field(0, description="Redis database number")

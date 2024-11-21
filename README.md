@@ -62,55 +62,101 @@ A sophisticated multi-agent system built with LangChain and LangGraph for handli
 - Docker Desktop
 - Git
 - PowerShell (Windows) or Bash (Unix)
+- Node.js 18+ (for local development)
+- Python 3.11+ (for local development)
 
 ### Quick Start
 
 1. **Clone the Repository**
 ```bash
 git clone https://github.com/yourusername/agenthub.git
-cd agenthub/backend
+cd agenthub
 ```
 
 2. **Environment Setup**
 ```bash
-# Copy environment file
-cp .env.example .env
+# Copy environment files
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env
 
-# Update .env with your settings
-# Especially update OPENAI_API_KEY
+# Update backend/.env with your settings
+OPENAI_API_KEY=your_key_here
+MONGODB_USER=agenthub_user
+MONGODB_PASSWORD=password123
+MONGODB_DB_NAME=agenthub
+
+# Update frontend/.env with your settings
+VITE_API_URL=http://localhost:8001
 ```
 
-3. **Development Setup**
-```powershell
-# Windows (PowerShell)
-.\scripts\dev-setup.ps1
+3. **Start the Application**
 
-# Unix (Bash)
-./scripts/dev-setup.sh
+For development:
+```bash
+# Start all services in development mode
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
+
+# Or start specific services
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up frontend api
+
+# Rebuild if needed
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build
 ```
 
-This will:
-- Check Docker is running
-- Reset the environment
-- Build fresh images
-- Start all services
-- Verify the setup
+For production:
+```bash
+# Start all services in production mode
+docker-compose up -d
+```
 
 4. **Verify Installation**
-```powershell
-# Check all services
-.\scripts\verify-setup.ps1
+```bash
+# Check service status
+docker-compose ps
 
-# Check MongoDB specifically
-.\scripts\check-mongodb-users.ps1
-.\scripts\verify-mongodb.ps1
+# Check logs
+docker-compose logs -f api
+docker-compose logs -f frontend
+docker-compose logs -f mongodb
 ```
 
 ### Service Access
-- API Documentation: http://localhost:8000/docs
-- API Health Check: http://localhost:8000/api/v1/health
-- MongoDB: mongodb://localhost:27017
-- Redis: localhost:6379
+- Frontend: http://localhost:3000
+- API Documentation: http://localhost:8001/docs
+- API Health Check: http://localhost:8001/api/v1/health
+- MongoDB: mongodb://localhost:27018
+- MongoDB Admin: http://localhost:27018 (if using MongoDB Compass)
+
+### Environment Variables
+
+#### Backend (.env)
+```bash
+# OpenAI Configuration
+OPENAI_API_KEY=your_key_here
+OPENAI_MODEL=gpt-4-turbo-preview
+
+# MongoDB Configuration
+MONGODB_HOST=mongodb
+MONGODB_PORT=27017
+MONGODB_USER=agenthub_user
+MONGODB_PASSWORD=password123
+MONGODB_DB_NAME=agenthub
+
+# API Configuration
+DEBUG=1
+LOG_LEVEL=DEBUG
+```
+
+#### Frontend (.env)
+```bash
+# API Configuration
+VITE_API_URL=http://localhost:8001
+
+# Development Settings
+NODE_ENV=development
+HOST=0.0.0.0
+PORT=3000
+```
 
 ### Database Schema
 The MongoDB database includes the following collections:
@@ -224,16 +270,16 @@ excursions: {
 
 #### Docker Commands
 ```bash
-# Start all services
-docker-compose up -d
+# Start development environment
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
 
-# Start specific service
-docker-compose up -d mongodb
+# Start production environment
+docker-compose up -d
 
 # View logs
 docker-compose logs -f api
+docker-compose logs -f frontend
 docker-compose logs -f mongodb
-docker-compose logs -f redis
 
 # Rebuild services
 docker-compose build --no-cache
@@ -391,6 +437,14 @@ curl http://localhost:8000/api/v1/health
    - Rebuild API only: `docker-compose build --no-cache api && docker-compose up -d api`
    - Check MongoDB connection: `.\scripts\verify-mongodb.ps1`
    - Verify Redis: `docker exec -it backend-redis-1 redis-cli ping`
+
+### Port Conflicts
+If you encounter port conflicts, the following ports are used:
+- Frontend: 3000
+- API: 8001 (external), 8000 (internal)
+- MongoDB: 27018 (external), 27017 (internal)
+
+To change ports, modify the port mappings in docker-compose.yml and update corresponding environment variables.
 
 ## 📝 License
 
