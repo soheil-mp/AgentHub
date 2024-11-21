@@ -1,9 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import MessageList from './MessageList';
 import ChatInput from './ChatInput';
-import GraphVisualizer from '../Graph/GraphVisualizer';
-import { Message, GraphState } from '../../types';
-import { sendMessage, getGraphStructure } from '../../services/api';
+import { Message } from '../../types';
+import { sendMessage } from '../../services/api';
 
 interface ChatInterfaceProps {
   userId: string;
@@ -12,34 +11,8 @@ interface ChatInterfaceProps {
 export default function ChatInterface({ userId }: ChatInterfaceProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [graphState, setGraphState] = useState<GraphState>({
-    current_node: 'ROUTER',
-    next_node: '',
-    nodes: ['ROUTER', 'PRODUCT', 'TECHNICAL', 'CUSTOMER_SERVICE', 'HUMAN'],
-    edges: [
-      ['ROUTER', 'PRODUCT'],
-      ['ROUTER', 'TECHNICAL'],
-      ['ROUTER', 'CUSTOMER_SERVICE'],
-      ['ROUTER', 'HUMAN']
-    ],
-    requires_action: false
-  });
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchGraphStructure = async () => {
-      try {
-        const data = await getGraphStructure();
-        setGraphState(data);
-      } catch (error) {
-        console.error('Error fetching graph structure:', error);
-        setError('Failed to load graph structure');
-      }
-    };
-
-    fetchGraphStructure();
-  }, []);
 
   const handleSendMessage = async (content: string) => {
     try {
@@ -54,9 +27,6 @@ export default function ChatInterface({ userId }: ChatInterfaceProps) {
       }));
       
       setMessages(updatedMessages);
-      if (response.graph_state) {
-        setGraphState(response.graph_state);
-      }
     } catch (error) {
       console.error('Error sending message:', error);
       setError('Failed to send message');
@@ -107,31 +77,6 @@ export default function ChatInterface({ userId }: ChatInterfaceProps) {
             onSend={handleSendMessage} 
             isLoading={isLoading} 
           />
-        </div>
-      </div>
-
-      {/* Right Column - Graph */}
-      <div className="bg-surface-primary rounded-lg overflow-hidden shadow-lg border border-dark-400">
-        <div className="px-4 py-3 bg-[#1e1e1e] border-b border-[#333333]">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-sm font-medium text-gray-200">Agent Workflow</h2>
-              <p className="text-xs text-gray-400 mt-0.5">
-                Active: <span className="font-medium text-[#06fdd8]">{graphState.current_node}</span>
-                {graphState.next_node && 
-                  <span> → <span className="text-gray-300">{graphState.next_node}</span></span>
-                }
-              </p>
-            </div>
-            {graphState.requires_action && (
-              <span className="px-2.5 py-1 bg-[#2a2a2a] text-[#06fdd8] rounded text-xs font-medium border border-[#06fdd8]/20">
-                Requires Action
-              </span>
-            )}
-          </div>
-        </div>
-        <div className="h-[calc(100%-4.5rem)] bg-surface-primary">
-          <GraphVisualizer graphState={graphState} />
         </div>
       </div>
     </div>
