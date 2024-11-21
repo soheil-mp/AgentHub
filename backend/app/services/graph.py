@@ -1,114 +1,67 @@
 from typing import Dict, Any, List, Tuple
 from langgraph.graph import StateGraph
-from app.services.agents.router import RouterAgent
-from app.services.agents.product import ProductAgent
-from app.services.agents.technical import TechnicalAgent
-from app.services.agents.customer_service import CustomerServiceAgent
-from app.services.agents.human_proxy import HumanProxyAgent
+from app.services.agents import (
+    AssistantAgent,
+    FlightBookingAgent,
+    HotelBookingAgent,
+    CarRentalAgent,
+    ExcursionAgent,
+    SensitiveWorkflowAgent
+)
 from graphviz import Digraph
 import json
 
 def get_node_connections() -> List[Tuple[str, str]]:
     """Get the list of node connections for visualization"""
     return [
-        ("ROUTER", "PRODUCT"),
-        ("ROUTER", "TECHNICAL"),
-        ("ROUTER", "CUSTOMER_SERVICE"),
-        ("ROUTER", "HUMAN"),
-        ("PRODUCT", "CUSTOMER_SERVICE"),
-        ("PRODUCT", "TECHNICAL"),
-        ("TECHNICAL", "PRODUCT"),
-        ("TECHNICAL", "HUMAN"),
-        ("CUSTOMER_SERVICE", "HUMAN"),
-        ("CUSTOMER_SERVICE", "PRODUCT"),
-        ("HUMAN", "ROUTER")
+        ("ASSISTANT", "FLIGHT"),
+        ("ASSISTANT", "HOTEL"),
+        ("ASSISTANT", "CAR_RENTAL"),
+        ("ASSISTANT", "EXCURSION"),
+        ("ASSISTANT", "SENSITIVE"),
+        ("FLIGHT", "ASSISTANT"),
+        ("HOTEL", "ASSISTANT"),
+        ("CAR_RENTAL", "ASSISTANT"),
+        ("EXCURSION", "ASSISTANT"),
+        ("SENSITIVE", "ASSISTANT")
     ]
-
-def visualize_graph() -> Digraph:
-    """Generate a Graphviz visualization of the agent workflow"""
-    dot = Digraph(comment='Agent Workflow')
-    dot.attr(rankdir='LR')  # Left to right layout
-    
-    # Define node styles
-    dot.attr('node', shape='box', style='rounded')
-    
-    # Add nodes
-    nodes = ["ROUTER", "PRODUCT", "TECHNICAL", "CUSTOMER_SERVICE", "HUMAN"]
-    for node in nodes:
-        dot.node(node, node)
-    
-    # Add edges from node connections
-    for source, target in get_node_connections():
-        dot.edge(source, target)
-    
-    return dot
 
 def get_chat_graph() -> StateGraph:
     # Initialize agents
-    router = RouterAgent()
-    product = ProductAgent()
-    technical = TechnicalAgent()
-    customer_service = CustomerServiceAgent()
-    human_proxy = HumanProxyAgent()
+    assistant = AssistantAgent()
+    flight = FlightBookingAgent()
+    hotel = HotelBookingAgent()
+    car_rental = CarRentalAgent()
+    excursion = ExcursionAgent()
+    sensitive = SensitiveWorkflowAgent()
 
     # Create state graph
-    workflow = StateGraph(name="Customer Support Workflow")
+    workflow = StateGraph(name="Travel Assistant Workflow")
 
     # Add nodes
-    workflow.add_node("ROUTER", router.invoke)
-    workflow.add_node("PRODUCT", product.invoke)
-    workflow.add_node("TECHNICAL", technical.invoke)
-    workflow.add_node("CUSTOMER_SERVICE", customer_service.invoke)
-    workflow.add_node("HUMAN", human_proxy.invoke)
+    workflow.add_node("ASSISTANT", assistant.invoke)
+    workflow.add_node("FLIGHT", flight.invoke)
+    workflow.add_node("HOTEL", hotel.invoke)
+    workflow.add_node("CAR_RENTAL", car_rental.invoke)
+    workflow.add_node("EXCURSION", excursion.invoke)
+    workflow.add_node("SENSITIVE", sensitive.invoke)
 
     # Define conditional routing
     def should_route(state: Dict[str, Any]) -> str:
-        return state.get("next", "ROUTER")
+        next_agent = state.get("next", "ASSISTANT")
+        # If no specific next agent is set, return to assistant
+        return next_agent if next_agent != "NONE" else "ASSISTANT"
 
     # Add edges with conditional routing
-    workflow.add_edge("ROUTER", should_route)
-    workflow.add_edge("PRODUCT", should_route)
-    workflow.add_edge("TECHNICAL", should_route)
-    workflow.add_edge("CUSTOMER_SERVICE", should_route)
-    workflow.add_edge("HUMAN", should_route)
+    workflow.add_edge("ASSISTANT", should_route)
+    workflow.add_edge("FLIGHT", should_route)
+    workflow.add_edge("HOTEL", should_route)
+    workflow.add_edge("CAR_RENTAL", should_route)
+    workflow.add_edge("EXCURSION", should_route)
+    workflow.add_edge("SENSITIVE", should_route)
 
     # Set entry point
-    workflow.set_entry_point("ROUTER")
-
-    # Add method to get visualization
-    def get_visualization(state: Dict[str, Any]) -> Dict[str, Any]:
-        dot = visualize_graph()
-        # Highlight current and next nodes
-        current = state.get("dialog_state", "ROUTER")
-        next_node = state.get("next", "ROUTER")
-        
-        # Update node styles based on state
-        dot.node(current, current, style='filled', fillcolor='lightblue')
-        if next_node != current:
-            dot.node(next_node, next_node, style='filled', fillcolor='lightgreen')
-        
-        return {
-            "dot": dot.source,
-            "current_node": current,
-            "next_node": next_node
-        }
-    
-    workflow.add_node("GET_VISUALIZATION", get_visualization)
-
-    # Set entry point
-    workflow.set_entry_point("ROUTER")
-
-    # Add method to get current graph state
-    def get_graph_state(state: Dict[str, Any]) -> Dict[str, Any]:
-        return {
-            "current_node": state.get("dialog_state", "ROUTER"),
-            "next_node": state.get("next", "ROUTER"),
-            "nodes": ["ROUTER", "PRODUCT", "TECHNICAL", "CUSTOMER_SERVICE", "HUMAN"],
-            "edges": get_node_connections(),
-            "requires_action": state.get("requires_action", False)
-        }
-
-    workflow.add_node("GET_GRAPH_STATE", get_graph_state)
+    workflow.set_entry_point("ASSISTANT")
 
     return workflow.compile()
 
@@ -116,6 +69,25 @@ def export_graph_visualization(filepath: str = "agent_workflow.gv") -> None:
     """Export the graph visualization to a file"""
     dot = visualize_graph()
     dot.render(filepath, view=True, format='png')
+
+def visualize_graph() -> Digraph:
+    """Create a visualization of the agent workflow"""
+    dot = Digraph(comment='Agent Workflow')
+    dot.attr(rankdir='LR')  # Left to right layout
+    
+    # Add nodes
+    dot.node('ASSISTANT', 'Assistant\nAgent', shape='circle')
+    dot.node('FLIGHT', 'Flight\nBooking', shape='box')
+    dot.node('HOTEL', 'Hotel\nBooking', shape='box')
+    dot.node('CAR_RENTAL', 'Car\nRental', shape='box')
+    dot.node('EXCURSION', 'Excursion\nBooking', shape='box')
+    dot.node('SENSITIVE', 'Sensitive\nWorkflow', shape='diamond')
+    
+    # Add edges
+    for source, target in get_node_connections():
+        dot.edge(source, target)
+    
+    return dot
 
 class State(Dict[str, Any]):
     """Type hint for state dictionary"""

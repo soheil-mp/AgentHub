@@ -1,27 +1,15 @@
-from .base import BaseAgent
-from .router import RouterAgent
-from .booking import (
-    FlightBookingAgent,
-    HotelBookingAgent,
-    CarRentalAgent,
-    ExcursionAgent
-)
-from .support import (
-    ProductAgent,
-    TechnicalAgent,
-    CustomerServiceAgent,
-    HumanProxyAgent
-)
+from .assistant import AssistantAgent
+from .booking.flight import FlightBookingAgent
+from .booking.hotel import HotelBookingAgent
+from .booking.car_rental import CarRentalAgent
+from .booking.excursion import ExcursionAgent
+from .support.sensitive import SensitiveWorkflowAgent
 
 __all__ = [
-    "BaseAgent",
-    "RouterAgent",
-    "FlightBookingAgent",
-    "HotelBookingAgent",
-    "CarRentalAgent",
-    "ExcursionAgent",
-    "ProductAgent",
-    "TechnicalAgent",
-    "CustomerServiceAgent",
-    "HumanProxyAgent"
+    'AssistantAgent',
+    'FlightBookingAgent',
+    'HotelBookingAgent',
+    'CarRentalAgent',
+    'ExcursionAgent',
+    'SensitiveWorkflowAgent'
 ] 

@@ -1,11 +1,7 @@
-from .product import ProductAgent
-from .technical import TechnicalAgent
-from .customer_service import CustomerServiceAgent
-from .human_proxy import HumanProxyAgent
+from .sensitive import SensitiveWorkflowAgent
+from .base_sensitive import BaseSensitiveAgent
 
 __all__ = [
-    "ProductAgent",
-    "TechnicalAgent",
-    "CustomerServiceAgent",
-    "HumanProxyAgent"
+    'SensitiveWorkflowAgent',
+    'BaseSensitiveAgent'
 ] 

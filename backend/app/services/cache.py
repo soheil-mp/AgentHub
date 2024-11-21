@@ -3,7 +3,7 @@ from redis.asyncio import Redis
 import json
 import logging
 from app.core.config import settings
-
+ 
 logger = logging.getLogger(__name__)
 
 class RedisCache:
@@ -92,3 +92,14 @@ async def get_cache() -> RedisCache:
             _cache = RedisCache(None)
     
     return _cache
+
+def get_redis() -> Redis:
+    redis = Redis(
+        host=settings.REDIS_HOST,
+        port=settings.REDIS_PORT,
+        decode_responses=True
+    )
+    try:
+        yield redis
+    finally:
+        redis.close()

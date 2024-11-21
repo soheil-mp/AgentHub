@@ -23,17 +23,12 @@ A sophisticated multi-agent system built with LangChain and LangGraph for handli
 ## 🌟 Features
 
 ### Multi-Agent Architecture
-- 🔄 **Router Agent** - Smart routing based on user intent
-- 📦 **Product Agent** - Product information and inquiries
-- 🔧 **Technical Agent** - Technical support and troubleshooting
-- 👥 **Customer Service Agent** - General support and billing
-- 🤝 **Human Proxy Agent** - Human escalation handling
-
-### Booking Specialists
+- 🧠 **Assistant Agent** - Central coordinator for all user interactions
 - ✈️ **Flight Booking Agent** - Air travel reservations
 - 🏨 **Hotel Booking Agent** - Accommodation bookings
 - 🚗 **Car Rental Agent** - Vehicle rentals
 - 🎯 **Excursion Agent** - Activity bookings
+- 🔒 **Sensitive Workflow Agent** - Secure handling of sensitive operations
 
 ### Technical Capabilities
 - 📊 **State Management**
@@ -64,9 +59,9 @@ A sophisticated multi-agent system built with LangChain and LangGraph for handli
 ## 🚀 Installation
 
 ### Prerequisites
-- Python 3.8 or higher
 - Docker Desktop
 - Git
+- PowerShell (Windows) or Bash (Unix)
 
 ### Quick Start
 
@@ -76,189 +71,328 @@ git clone https://github.com/yourusername/agenthub.git
 cd agenthub/backend
 ```
 
-2. **Set Up Virtual Environment**
+2. **Environment Setup**
 ```bash
-# Create virtual environment
-python -m venv venv
-
-# Activate virtual environment
-# On Windows:
-venv\Scripts\activate
-# On Unix/MacOS:
-source venv/bin/activate
-
-# Upgrade pip
-python -m pip install --upgrade pip
-```
-
-3. **Install Dependencies**
-```bash
-# Install project with development dependencies
-pip install -e ".[dev]"
-```
-
-4. **Configure Environment**
-```bash
-# Copy example environment file
+# Copy environment file
 cp .env.example .env
 
-# Edit .env file with your settings:
-# - Add your OpenAI API key
-# - Configure Redis and MongoDB settings
-# - Adjust other settings as necessary
+# Update .env with your settings
+# Especially update OPENAI_API_KEY
 ```
 
-5. **Start Services**
-```bash
-# Start Redis and MongoDB
-docker-compose up -d
+3. **Development Setup**
+```powershell
+# Windows (PowerShell)
+.\scripts\dev-setup.ps1
 
-# Verify services are running
-docker-compose ps
+# Unix (Bash)
+./scripts/dev-setup.sh
 ```
 
-6. **Start the API Server**
-```bash
-uvicorn app.main:app --reload
+This will:
+- Check Docker is running
+- Reset the environment
+- Build fresh images
+- Start all services
+- Verify the setup
+
+4. **Verify Installation**
+```powershell
+# Check all services
+.\scripts\verify-setup.ps1
+
+# Check MongoDB specifically
+.\scripts\check-mongodb-users.ps1
+.\scripts\verify-mongodb.ps1
 ```
 
-### Verify Installation
-
-After starting the server, you can access:
+### Service Access
 - API Documentation: http://localhost:8000/docs
-- API Information: http://localhost:8000/redoc
-- Health Check: http://localhost:8000/api/v1/health
-
-## 💻 Development
-
-### Project Structure
-```
-.
-├── backend/
-│   ├── app/
-│   │   ├── api/              # API endpoints and routes
-│   │   │   ├── routes/       # Route definitions
-│   │   │   └── middleware/   # Custom middleware
-│   │   ├── core/             # Core configurations
-│   │   │   ├── config.py     # Settings management
-│   │   │   └── exceptions.py # Error handling
-│   │   ├── schemas/          # Data models and schemas
-│   │   └── services/         # Business logic
-│   │       ├── agents/       # Agent implementations
-│   │       │   ├── base.py   # Base agent class
-│   │       │   ├── booking/  # Booking-related agents
-│   │       │   ├── support/  # Support-related agents
-│   │       │   └── router.py # Router agent
-│   │       ├── cache.py      # Redis service
-│   │       ├── database.py   # MongoDB service
-│   │       └── graph.py      # Workflow definitions
-│   ├── tests/                # Test suites
-│   │   ├── unit/            # Unit tests
-│   │   ├── integration/     # Integration tests
-│   │   ├── performance/     # Performance tests
-│   │   └── security/        # Security tests
-│   └── docker-compose.yml    # Service definitions
-│
-└── frontend/
-    ├── public/              # Static assets
-    ├── src/
-    │   ├── components/      # React components
-    │   │   ├── Chat/       # Chat interface components
-    │   │   └── Graph/      # Graph visualization components
-    │   ├── types/          # TypeScript type definitions
-    │   ├── App.tsx         # Root component
-    │   └── main.tsx        # Entry point
-    ├── index.html          # HTML template
-    ├── tailwind.config.js  # Tailwind CSS configuration
-    └── package.json        # Frontend dependencies
-```
+- API Health Check: http://localhost:8000/api/v1/health
+- MongoDB: mongodb://localhost:27017
+- Redis: localhost:6379
 
 ### Database Schema
-- **MongoDB Collections**
-  - `users`: User profiles and preferences
-  - `conversations`: Chat history and context
-  - `bookings`: Reservation details
-  - `metrics`: Performance and usage data
+The MongoDB database includes the following collections:
 
-### Key Components
-- **Redis**: Session management and caching
-- **MongoDB**: Persistent data storage
-- **FastAPI**: API framework
-- **LangChain**: Agent orchestration
-- **Docker**: Service containerization
+```javascript
+users: {
+    email: String (unique),
+    hashed_password: String,
+    created_at: Date,
+    updated_at: Date
+}
 
-## 🧪 Testing
+conversations: {
+    user_id: String,
+    started_at: Date,
+    ended_at: Date,
+    metadata: Object
+}
 
-### Running Tests
-```bash
-# Run all tests
-pytest
+messages: {
+    conversation_id: String,
+    role: Enum["user", "assistant", "system"],
+    content: String,
+    created_at: Date,
+    metadata: Object
+}
 
-# Run specific test categories
-pytest tests/unit/          # Unit tests
-pytest tests/integration/   # Integration tests
-pytest tests/performance/  # Performance tests
+flight_bookings: {
+    user_id: String,
+    booking_reference: String (unique),
+    status: String,
+    passenger_details: Object,
+    payment_status: String,
+    created_at: Date,
+    updated_at: Date
+}
 
-# Run with coverage
-pytest --cov=app tests/
+hotel_bookings: {
+    user_id: String,
+    booking_reference: String (unique),
+    status: String,
+    hotel_id: String,
+    check_in_date: Date,
+    check_out_date: Date,
+    room_details: Object,
+    guest_details: Object,
+    payment_status: String,
+    created_at: Date,
+    updated_at: Date
+}
+
+car_rentals: {
+    user_id: String,
+    booking_reference: String (unique),
+    status: String,
+    vehicle_type: String,
+    pickup_location: String,
+    dropoff_location: String,
+    pickup_time: Date,
+    dropoff_time: Date,
+    driver_details: Object,
+    payment_status: String,
+    created_at: Date,
+    updated_at: Date
+}
+
+excursions: {
+    user_id: String,
+    booking_reference: String (unique),
+    status: String,
+    activity_id: String,
+    activity_date: Date,
+    participant_details: Object,
+    payment_status: String,
+    created_at: Date,
+    updated_at: Date
+}
 ```
 
-### Test Categories
+### Development Tools
 
-| Category | Description | Examples |
-|----------|-------------|----------|
-| Unit Tests | Individual components | Agent behavior, Service functions |
-| Integration | Component interaction | API endpoints, Workflows |
-| Performance | System efficiency | Load testing, Response times |
-| Security | System protection | Input validation, Auth checks |
+#### PowerShell Scripts
+- `dev-setup.ps1`: Set up complete development environment
+- `verify-setup.ps1`: Verify all services are running correctly
+- `check-mongodb-users.ps1`: Check MongoDB users and permissions
+- `verify-mongodb.ps1`: Verify MongoDB collections and indexes
+- `reset-mongodb.ps1`: Reset MongoDB data and configuration
+- `monitor-logs.ps1`: Monitor service logs with filtering
 
-## 🔧 Maintenance
+#### Log Monitoring
+```powershell
+# Monitor all logs
+.\scripts\monitor-logs.ps1
 
-### Health Monitoring
-- **System Health**: `GET /api/v1/health`
-- **Database Status**: `GET /api/v1/health/db`
-- **Cache Status**: `GET /api/v1/health/cache`
-- **Agent Status**: `GET /api/v1/health/agents`
+# Monitor specific service
+.\scripts\monitor-logs.ps1 -service mongodb
+.\scripts\monitor-logs.ps1 -service redis
+.\scripts\monitor-logs.ps1 -service api
 
-### Logging
-- Application logs: `docker-compose logs app`
-- MongoDB logs: `docker-compose logs mongodb`
-- Redis logs: `docker-compose logs redis`
+# Monitor by log level
+.\scripts\monitor-logs.ps1 -level error
+.\scripts\monitor-logs.ps1 -level warning
+.\scripts\monitor-logs.ps1 -level info
 
-### Metrics
-- System metrics: `GET /api/v1/metrics`
-- Agent performance: `GET /api/v1/metrics/agents`
-- Response times: `GET /api/v1/metrics/performance`
+# Show previous logs
+.\scripts\monitor-logs.ps1 -tail 100
 
-## 🤝 Contributing
-
-1. **Fork and Clone**
-```bash
-git clone https://github.com/yourusername/agenthub.git
-cd agenthub
+# Combine filters
+.\scripts\monitor-logs.ps1 -service mongodb -level error -tail 50
 ```
 
-2. **Set Up Development Environment**
+#### Docker Commands
 ```bash
+# Start all services
+docker-compose up -d
+
+# Start specific service
+docker-compose up -d mongodb
+
+# View logs
+docker-compose logs -f api
+docker-compose logs -f mongodb
+docker-compose logs -f redis
+
+# Rebuild services
+docker-compose build --no-cache
+docker-compose up -d
+
+# Reset everything
+docker-compose down -v
+docker volume prune -f
+```
+
+### Troubleshooting
+
+#### Log Analysis
+```powershell
+# Monitor all service logs
+.\scripts\monitor-logs.ps1
+
+# Monitor errors only
+.\scripts\monitor-logs.ps1 -level error
+
+# Monitor specific service errors
+.\scripts\monitor-logs.ps1 -service mongodb -level error
+
+# Check recent logs
+.\scripts\monitor-logs.ps1 -tail 100
+```
+
+#### Database Issues
+```bash
+# Reset MongoDB
+.\scripts\reset-mongodb.ps1
+
+# Check MongoDB status
+.\scripts\verify-mongodb.ps1
+
+# Check MongoDB users
+.\scripts\check-mongodb-users.ps1
+```
+
+#### API Issues
+```bash
+# Check API logs
+docker-compose logs -f api
+
+# Restart API
+docker-compose restart api
+
+# Rebuild API
+docker-compose build --no-cache api
+docker-compose up -d api
+```
+
+#### Redis Issues
+```bash
+# Check Redis logs
+docker-compose logs -f redis
+
+# Test Redis connection
+docker exec -it backend-redis-1 redis-cli ping
+
+# Reset Redis
+docker-compose restart redis
+```
+
+#### Common Issues
+1. **MongoDB Authentication Failed**
+   - Run `.\scripts\reset-mongodb.ps1` to reset MongoDB
+   - Check MongoDB logs: `.\scripts\monitor-logs.ps1 -service mongodb`
+   - Monitor authentication issues: `.\scripts\monitor-logs.ps1 -service mongodb -level error`
+   - Verify users: `.\scripts\check-mongodb-users.ps1`
+
+2. **Redis Connection Failed**
+   - Check Redis is running: `docker-compose ps redis`
+   - Monitor Redis logs: `.\scripts\monitor-logs.ps1 -service redis`
+   - Check Redis errors: `.\scripts\monitor-logs.ps1 -service redis -level error`
+   - Verify Redis connection: `docker exec -it backend-redis-1 redis-cli ping`
+
+3. **API Not Starting**
+   - Monitor API logs: `.\scripts\monitor-logs.ps1 -service api`
+   - Check API errors: `.\scripts\monitor-logs.ps1 -service api -level error`
+   - Verify environment variables
+   - Check MongoDB and Redis are running
+   - Rebuild API: `docker-compose build --no-cache api`
+
+### Starting the API
+
+#### Option 1: Using Docker (Recommended)
+```bash
+# Start all services
+docker-compose up -d
+
+# Or start just the API
+docker-compose up -d api
+
+# Monitor API logs
+.\scripts\monitor-logs.ps1 -service api
+
+# Monitor API errors only
+.\scripts\monitor-logs.ps1 -service api -level error
+```
+
+#### Option 2: Running Locally
+```bash
+# Create and activate virtual environment
 python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
-pip install -e ".[dev]"
+.\venv\Scripts\activate  # Windows
+source venv/bin/activate  # Unix
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Start the API
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-3. **Development Guidelines**
-- Follow PEP 8 style guide
-- Add tests for new features
-- Update documentation
-- Use type hints
-- Add meaningful commit messages
+#### Verifying API Status
+1. **Check Health Endpoint**:
+```bash
+curl http://localhost:8000/api/v1/health
+```
 
-4. **Submit Pull Request**
-- Ensure all tests pass
-- Update documentation
-- Follow code style guidelines
-- Include test coverage
+2. **Visit API Documentation**:
+- Swagger UI: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
 
-## 📄 License
+3. **Monitor API Status**:
+```bash
+# Check all services status
+.\scripts\verify-setup.ps1
+
+# Monitor API logs
+.\scripts\monitor-logs.ps1 -service api
+```
+
+#### Troubleshooting API Issues
+1. **Check Dependencies**:
+   - MongoDB is running and healthy
+   - Redis is running and healthy
+   - All environment variables are set correctly
+
+2. **Check Logs**:
+```bash
+# View all API logs
+.\scripts\monitor-logs.ps1 -service api
+
+# View only API errors
+.\scripts\monitor-logs.ps1 -service api -level error
+
+# View recent logs
+.\scripts\monitor-logs.ps1 -service api -tail 100
+```
+
+3. **Common Solutions**:
+   - Reset and rebuild: `docker-compose down -v && docker-compose up -d`
+   - Rebuild API only: `docker-compose build --no-cache api && docker-compose up -d api`
+   - Check MongoDB connection: `.\scripts\verify-mongodb.ps1`
+   - Verify Redis: `docker exec -it backend-redis-1 redis-cli ping`
+
+## 📝 License
 
 This project is licensed under the CC0 1.0 Universal License - see the [LICENSE](LICENSE) file for details.
 
