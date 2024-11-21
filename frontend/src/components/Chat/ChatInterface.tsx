@@ -84,25 +84,37 @@ export default function ChatInterface({ userId }: ChatInterfaceProps) {
   }, [messages]);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-[calc(100vh-8rem)]">
-      {/* Chat Column */}
-      <div className="flex flex-col bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+    <div className="grid grid-cols-1 lg:grid-cols-[1fr,400px] gap-6 h-[calc(100vh-8rem)]">
+      {/* Left Column - Chat */}
+      <div className="flex flex-col bg-surface-primary rounded-lg overflow-hidden shadow-lg border border-dark-400">
         {/* Chat Header */}
-        <div className="p-4 border-b border-gray-200 bg-gray-50">
-          <h2 className="text-lg font-semibold text-gray-700">Chat Interface</h2>
-          <p className="text-sm text-gray-500">
-            {messages.length} messages • {isLoading ? 'Typing...' : 'Online'}
-          </p>
+        <div className="px-4 py-3 bg-[#1e1e1e] border-b border-[#333333]">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-sm font-medium text-gray-200">Chat Interface</h2>
+              <p className="text-xs text-gray-400 mt-0.5">
+                {messages.length} messages • {isLoading ? 
+                  <span className="text-[#06fdd8]">Agent is typing...</span> : 
+                  <span className="text-[#06fdd8]">Online</span>
+                }
+              </p>
+            </div>
+            <button className="p-1.5 hover:bg-[#2a2a2a] rounded transition-colors">
+              <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
         </div>
 
-        {/* Messages Section */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50/50">
+        {/* Messages Section - Add smooth scroll shadow */}
+        <div className="flex-1 overflow-y-auto px-4 py-3 space-y-3 bg-[#1a1a1a]">
           <MessageList messages={messages} />
           <div ref={messagesEndRef} />
         </div>
         
-        {/* Input Section */}
-        <div className="p-4 border-t border-gray-200 bg-white">
+        {/* Input Section - Improved spacing and visual hierarchy */}
+        <div className="p-4 bg-[#1e1e1e] border-t border-[#333333]">
           <ChatInput 
             onSend={sendMessage} 
             isLoading={isLoading} 
@@ -110,27 +122,27 @@ export default function ChatInterface({ userId }: ChatInterfaceProps) {
         </div>
       </div>
 
-      {/* Graph Column */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-        <div className="p-4 border-b border-gray-200 bg-gray-50">
+      {/* Right Column - Graph */}
+      <div className="bg-surface-primary rounded-lg overflow-hidden shadow-lg border border-dark-400">
+        <div className="px-4 py-3 bg-[#1e1e1e] border-b border-[#333333]">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-lg font-semibold text-gray-700">Agent Workflow</h2>
-              <p className="text-sm text-gray-500">
-                Active: <span className="font-medium text-blue-600">{graphState.current_node}</span>
+              <h2 className="text-sm font-medium text-gray-200">Agent Workflow</h2>
+              <p className="text-xs text-gray-400 mt-0.5">
+                Active: <span className="font-medium text-[#06fdd8]">{graphState.current_node}</span>
                 {graphState.next_node && 
-                  <span> → <span className="text-gray-600">{graphState.next_node}</span></span>
+                  <span> → <span className="text-gray-300">{graphState.next_node}</span></span>
                 }
               </p>
             </div>
             {graphState.requires_action && (
-              <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">
+              <span className="px-2.5 py-1 bg-[#2a2a2a] text-[#06fdd8] rounded text-xs font-medium border border-[#06fdd8]/20">
                 Requires Action
               </span>
             )}
           </div>
         </div>
-        <div className="p-4 h-[calc(100%-5rem)]">
+        <div className="h-[calc(100%-4.5rem)] bg-surface-primary">
           <GraphVisualizer graphState={graphState} />
         </div>
       </div>

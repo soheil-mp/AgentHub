@@ -196,7 +196,7 @@ export default function GraphVisualizer({ graphState }: GraphVisualizerProps) {
   }), []);
 
   return (
-    <div className="h-full w-full bg-gray-50/50">
+    <div className="h-full w-full bg-white">
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -207,13 +207,13 @@ export default function GraphVisualizer({ graphState }: GraphVisualizerProps) {
           minZoom: 0.5,
           maxZoom: 1.5
         }}
-        className="bg-gray-50/50"
+        className="bg-white"
         connectionMode={ConnectionMode.Loose}
         minZoom={0.5}
         maxZoom={1.5}
         defaultEdgeOptions={{
           style: { strokeWidth: 2 },
-          animated: false, // Only animate specific edges
+          animated: false,
           type: 'smoothstep'
         }}
       >
