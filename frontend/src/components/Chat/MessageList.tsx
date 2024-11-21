@@ -13,7 +13,6 @@ export default function MessageList({ messages }: MessageListProps) {
         <MessageBubble
           key={index}
           message={message}
-          isUser={message.role === 'user'}
         />
       ))}
     </div>

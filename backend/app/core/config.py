@@ -34,7 +34,16 @@ class Settings(BaseSettings):
     LOG_LEVEL: str = Field("INFO", description="Logging level")
 
     # CORS
-    ALLOWED_ORIGINS: List[str] = Field(["*"], description="Allowed CORS origins")
+    ALLOWED_ORIGINS: List[str] = Field(
+        [
+            "http://localhost:3000",
+            "http://127.0.0.1:3000",
+            "http://frontend:3000",
+            "http://localhost:8001",  # Add backend URL
+            "http://127.0.0.1:8001"   # Add backend IP
+        ],
+        description="Allowed CORS origins"
+    )
 
     # Agent Configuration
     DEFAULT_MODEL: str = Field("gpt-3.5-turbo", description="Default LLM model")

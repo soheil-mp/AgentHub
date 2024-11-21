@@ -10,6 +10,7 @@ interface ImportMeta {
 interface Message {
   role: 'user' | 'assistant' | 'system';
   content: string;
+  timestamp?: string;
 }
 
 interface ChatResponse {
@@ -25,28 +26,96 @@ interface ChatResponse {
   };
 }
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://api:8000';
-
 export const sendMessage = async (message: string, userId: string): Promise<ChatResponse> => {
   try {
-    const response = await fetch(`${API_URL}/api/v1/chat`, {
+    const payload = {
+      messages: [{
+        role: 'user',
+        content: message,
+        timestamp: new Date().toISOString()
+      }],
+      user_id: userId,
+      context: {}
+    };
+
+    console.log('Sending request:', payload);
+
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/chat/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Origin': window.location.origin
       },
-      body: JSON.stringify({
-        messages: [{ role: 'user', content: message }],
-        user_id: userId,
-      }),
+      credentials: 'include',
+      body: JSON.stringify(payload),
     });
 
-    if (!response.ok) {
-      throw new Error(`API error: ${response.status}`);
+    console.log('Response status:', response.status);
+
+    // First try to get the response text
+    const responseText = await response.text();
+    console.log('Raw response:', responseText);
+
+    let data;
+    try {
+      // Then try to parse it as JSON
+      data = JSON.parse(responseText);
+    } catch (parseError) {
+      console.error('Failed to parse JSON response:', parseError);
+      console.error('Raw response was:', responseText);
+      throw new Error(`Invalid JSON response from server: ${responseText}`);
     }
 
-    return await response.json();
+    if (!response.ok) {
+      console.error('API error response:', data);
+      throw new Error(
+        `API error: ${response.status}${data ? ' - ' + JSON.stringify(data) : ''}`
+      );
+    }
+
+    console.log('Parsed response data:', data);
+    return data;
   } catch (error) {
-    console.error('Error sending message:', error);
+    console.error('Error in sendMessage:', error);
+    throw error;
+  }
+};
+
+export const getGraphStructure = async () => {
+  try {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/chat/graph/structure`, {
+      headers: {
+        'Accept': 'application/json',
+        'Origin': window.location.origin
+      },
+      credentials: 'include'
+    });
+    
+    // First get the response text
+    const responseText = await response.text();
+    console.log('Raw graph response:', responseText);
+
+    let data;
+    try {
+      // Then try to parse it as JSON
+      data = JSON.parse(responseText);
+    } catch (parseError) {
+      console.error('Failed to parse JSON response:', parseError);
+      console.error('Raw response was:', responseText);
+      throw new Error(`Invalid JSON response from server: ${responseText}`);
+    }
+
+    if (!response.ok) {
+      console.error('API error response:', data);
+      throw new Error(
+        `API error: ${response.status}${data ? ' - ' + JSON.stringify(data) : ''}`
+      );
+    }
+
+    return data;
+  } catch (error) {
+    console.error('Error fetching graph structure:', error);
     throw error;
   }
 }; 

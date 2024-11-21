@@ -171,7 +171,7 @@ export default function GraphVisualizer({ graphState }: GraphVisualizerProps) {
     })), [graphState.nodes, graphState.current_node, graphState.next_node]);
 
   const initialEdges: Edge[] = useMemo(() => 
-    graphState.edges.map(([source, target], index) => ({
+    graphState.edges.map(([source, target]) => ({
       id: `${source}-${target}`,
       source,
       target,

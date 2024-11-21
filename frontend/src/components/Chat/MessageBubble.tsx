@@ -3,43 +3,42 @@ import { Message } from '../../types';
 
 interface MessageBubbleProps {
   message: Message;
-  isUser: boolean;
 }
 
-export default function MessageBubble({ message, isUser }: MessageBubbleProps) {
+export default function MessageBubble({ message }: MessageBubbleProps) {
+  const isUser = message.role === 'user';
+
+  const formatTimestamp = (timestamp: string | undefined) => {
+    if (!timestamp) return '';
+    
+    try {
+      const date = new Date(timestamp);
+      return date.toLocaleTimeString([], { 
+        hour: '2-digit', 
+        minute: '2-digit' 
+      });
+    } catch (error) {
+      console.error('Error formatting timestamp:', error);
+      return '';
+    }
+  };
+
   return (
-    <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} group`}>
-      {!isUser && (
-        <div className="w-8 h-8 rounded-lg bg-[#1e1e1e] flex items-center justify-center mr-2 border border-[#333333]">
-          <span className="text-base">🤖</span>
-        </div>
-      )}
+    <div className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}>
       <div
-        className={`max-w-[70%] rounded-lg px-4 py-2.5
-          ${isUser 
-            ? 'bg-[#1e1e1e] border border-[#333333] text-white'
-            : 'bg-[#1e1e1e] border border-[#333333] text-gray-100'
-          }`}
+        className={`max-w-[80%] rounded-lg px-4 py-2 ${
+          isUser
+            ? 'bg-accent-500 text-white'
+            : 'bg-surface-secondary border border-dark-400'
+        }`}
       >
-        <div className="flex flex-col gap-1">
-          <p className="text-sm whitespace-pre-wrap leading-relaxed">
-            {message.content}
-          </p>
-          <div className="flex items-center gap-2">
-            <span className="text-[11px] text-gray-400">
-              {new Date(message.timestamp).toLocaleTimeString([], { 
-                hour: '2-digit', 
-                minute: '2-digit' 
-              })}
-            </span>
+        <div className="text-sm">{message.content}</div>
+        {message.timestamp && (
+          <div className="text-xs mt-1 opacity-70">
+            {formatTimestamp(message.timestamp)}
           </div>
-        </div>
+        )}
       </div>
-      {isUser && (
-        <div className="w-8 h-8 rounded-lg bg-[#1e1e1e] border border-[#333333] flex items-center justify-center ml-2">
-          <span className="text-xs text-gray-200 font-medium">You</span>
-        </div>
-      )}
     </div>
   );
 } 

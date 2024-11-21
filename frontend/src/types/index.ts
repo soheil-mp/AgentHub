@@ -1,7 +1,7 @@
 export interface Message {
   role: 'user' | 'assistant' | 'system';
   content: string;
-  timestamp: string;
+  timestamp?: string;
 }
 
 export interface GraphState {
@@ -12,9 +12,9 @@ export interface GraphState {
   requires_action: boolean;
 }
 
-export interface ChatState {
+export interface ChatResponse {
   messages: Message[];
-  isLoading: boolean;
-  error: string | null;
-  graphState: GraphState | null;
+  requires_action: boolean;
+  action_type?: string;
+  graph_state?: GraphState;
 } 

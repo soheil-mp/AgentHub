@@ -3,6 +3,7 @@ import MessageList from './MessageList';
 import ChatInput from './ChatInput';
 import GraphVisualizer from '../Graph/GraphVisualizer';
 import { Message, GraphState } from '../../types';
+import { sendMessage, getGraphStructure } from '../../services/api';
 
 interface ChatInterfaceProps {
   userId: string;
@@ -19,74 +20,61 @@ export default function ChatInterface({ userId }: ChatInterfaceProps) {
       ['ROUTER', 'PRODUCT'],
       ['ROUTER', 'TECHNICAL'],
       ['ROUTER', 'CUSTOMER_SERVICE'],
-      ['ROUTER', 'HUMAN'],
-      ['PRODUCT', 'CUSTOMER_SERVICE'],
-      ['PRODUCT', 'TECHNICAL'],
-      ['TECHNICAL', 'PRODUCT'],
-      ['TECHNICAL', 'HUMAN'],
-      ['CUSTOMER_SERVICE', 'HUMAN'],
-      ['CUSTOMER_SERVICE', 'PRODUCT'],
-      ['HUMAN', 'ROUTER']
+      ['ROUTER', 'HUMAN']
     ],
     requires_action: false
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [error, setError] = useState<string | null>(null);
 
-  const sendMessage = async (content: string) => {
+  useEffect(() => {
+    const fetchGraphStructure = async () => {
+      try {
+        const data = await getGraphStructure();
+        setGraphState(data);
+      } catch (error) {
+        console.error('Error fetching graph structure:', error);
+        setError('Failed to load graph structure');
+      }
+    };
+
+    fetchGraphStructure();
+  }, []);
+
+  const handleSendMessage = async (content: string) => {
     try {
       setIsLoading(true);
-      
-      const newMessage: Message = {
-        role: 'user',
-        content,
-        timestamp: new Date().toISOString()
-      };
-      
-      setMessages(prev => [...prev, newMessage]);
+      setError(null);
 
-      const response = await fetch('/api/v1/chat/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          messages: [...messages, newMessage].map(({ role, content }) => ({ role, content })),
-          user_id: userId,
-        }),
-      });
-
-      const data = await response.json();
+      const response = await sendMessage(content, userId);
       
-      if (data.messages) {
-        const assistantMessage: Message = {
-          role: 'assistant',
-          content: data.messages[data.messages.length - 1].content,
-          timestamp: new Date().toISOString()
-        };
-        setMessages(prev => [...prev, assistantMessage]);
+      const updatedMessages = response.messages.map(msg => ({
+        ...msg,
+        timestamp: msg.timestamp || new Date().toISOString()
+      }));
+      
+      setMessages(updatedMessages);
+      if (response.graph_state) {
+        setGraphState(response.graph_state);
       }
-
-      // Update graph state if provided in response
-      if (data.graph_state) {
-        setGraphState(data.graph_state);
-      }
-
     } catch (error) {
       console.error('Error sending message:', error);
+      setError('Failed to send message');
     } finally {
       setIsLoading(false);
     }
   };
 
-  // Scroll to bottom when messages change
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
-
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr,400px] gap-6 h-[calc(100vh-8rem)]">
       {/* Left Column - Chat */}
       <div className="flex flex-col bg-surface-primary rounded-lg overflow-hidden shadow-lg border border-dark-400">
+        {/* Add error display */}
+        {error && (
+          <div className="px-4 py-2 bg-red-500/10 border-b border-red-500/20 text-red-500 text-sm">
+            {error}
+          </div>
+        )}
         {/* Chat Header */}
         <div className="px-4 py-3 bg-[#1e1e1e] border-b border-[#333333]">
           <div className="flex items-center justify-between">
@@ -116,7 +104,7 @@ export default function ChatInterface({ userId }: ChatInterfaceProps) {
         {/* Input Section - Improved spacing and visual hierarchy */}
         <div className="p-4 bg-[#1e1e1e] border-t border-[#333333]">
           <ChatInput 
-            onSend={sendMessage} 
+            onSend={handleSendMessage} 
             isLoading={isLoading} 
           />
         </div>

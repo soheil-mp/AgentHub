@@ -1,19 +1,46 @@
+/// <reference types="vite/client" />
+
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: '0.0.0.0',
     port: 3000,
+    host: true,
     proxy: {
-      '/api': {
-        target: 'http://api:8000',
+      '/api/v1': {
+        target: 'http://localhost:8001',
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path
-      },
-    },
+        rewrite: (path) => path,
+        configure: (proxy, _options) => {
+          proxy.on('error', (err, _req, _res) => {
+            console.error('proxy error', err);
+          });
+          proxy.on('proxyReq', (proxyReq, req, _res) => {
+            proxyReq.setHeader('Origin', 'http://localhost:3000');
+            console.log('Proxying request:', {
+              originalUrl: req.url,
+              modifiedPath: proxyReq.path,
+              method: req.method,
+              headers: proxyReq.getHeaders()
+            });
+          });
+          proxy.on('proxyRes', (proxyRes, req, _res) => {
+            console.log('Received response:', {
+              path: req.url,
+              status: proxyRes.statusCode,
+              headers: proxyRes.headers
+            });
+          });
+        }
+      }
+    }
   },
+  resolve: {
+    alias: {
+      '@': '/src'
+    }
+  }
 }); 

@@ -56,14 +56,56 @@ def get_chat_model():
             }
         )
 
-@router.post("/", response_model=ChatResponse)
-async def chat(
-    request: ChatRequest,
-    rate_limit: bool = Depends(rate_limiter.check_rate_limit)
-):
+@router.get("/graph/structure")
+async def get_graph_structure():
+    """Get the graph structure for visualization"""
     try:
+        # Create a static graph structure
+        graph_state = GraphState(
+            current_node="ROUTER",
+            next_node="",
+            nodes=["ROUTER", "PRODUCT", "TECHNICAL", "CUSTOMER_SERVICE", "HUMAN"],
+            edges=[
+                ["ROUTER", "PRODUCT"],
+                ["ROUTER", "TECHNICAL"],
+                ["ROUTER", "CUSTOMER_SERVICE"],
+                ["ROUTER", "HUMAN"],
+                ["PRODUCT", "CUSTOMER_SERVICE"],
+                ["PRODUCT", "TECHNICAL"],
+                ["TECHNICAL", "PRODUCT"],
+                ["TECHNICAL", "HUMAN"],
+                ["CUSTOMER_SERVICE", "HUMAN"],
+                ["CUSTOMER_SERVICE", "PRODUCT"],
+                ["HUMAN", "ROUTER"]
+            ],
+            requires_action=False
+        )
+
+        # Log the response for debugging
+        logger.debug(f"Graph structure response: {graph_state.model_dump()}")
+
+        # Return the Pydantic model
+        return graph_state
+
+    except Exception as e:
+        logger.error(f"Error getting graph structure: {e}", exc_info=True)  # Added exc_info for full traceback
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Failed to get graph structure"
+        )
+
+@router.post("/")
+async def chat(request: ChatRequest):
+    """Process chat messages and return response"""
+    try:
+        # Log the incoming request for debugging
+        logger.debug(f"Received chat request: {request}")
+        
         # Initialize chat model
-        chat_model = get_chat_model()
+        chat_model = ChatOpenAI(
+            api_key=settings.OPENAI_API_KEY,
+            model=settings.OPENAI_MODEL
+        )
 
         # Validate messages
         if not request.messages:
@@ -72,15 +114,11 @@ async def chat(
                 details={"code": "NO_MESSAGES"}
             )
 
-        # Convert messages to LangChain format
-        langchain_messages = []
-        for msg in request.messages:
-            if msg.role == "user":
-                langchain_messages.append(HumanMessage(content=msg.content))
-            elif msg.role == "assistant":
-                langchain_messages.append(AIMessage(content=msg.content))
-            elif msg.role == "system":
-                langchain_messages.append(SystemMessage(content=msg.content))
+        # Get the last message only
+        last_message = request.messages[-1]
+        
+        # Convert to LangChain format
+        langchain_messages = [HumanMessage(content=last_message.content)]
 
         # Get response from model
         response = await chat_model.ainvoke(langchain_messages)
@@ -88,33 +126,40 @@ async def chat(
         # Format response
         result = {
             "messages": [
-                *request.messages,
-                ChatMessage(role="assistant", content=response.content)
-            ],
-            "requires_action": False
+                {"role": msg.role, "content": msg.content} for msg in request.messages
+            ] + [{"role": "assistant", "content": response.content}],
+            "requires_action": False,
+            "graph_state": {
+                "current_node": "ROUTER",
+                "next_node": "",
+                "nodes": ["ROUTER", "PRODUCT", "TECHNICAL", "CUSTOMER_SERVICE", "HUMAN"],
+                "edges": [
+                    ["ROUTER", "PRODUCT"],
+                    ["ROUTER", "TECHNICAL"],
+                    ["ROUTER", "CUSTOMER_SERVICE"],
+                    ["ROUTER", "HUMAN"]
+                ],
+                "requires_action": False
+            }
         }
 
-        # Store in state if needed
-        state_manager = StateManager(request.user_id)
-        await state_manager.update_state({
-            "messages": [(msg.role, msg.content) for msg in result["messages"]],
-            "context": request.context
-        })
+        # Log the response for debugging
+        logger.debug(f"Chat response: {result}")
 
-        return result
+        return JSONResponse(content=result)
 
     except ValidationError as e:
         logger.warning(f"Validation error: {e}")
-        raise HTTPException(
-            status_code=e.status_code,
-            detail={"code": e.code, "message": str(e), **e.details}
+        return JSONResponse(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            content={"detail": {"code": e.code, "message": str(e), **e.details}}
         )
     except Exception as e:
-        logger.error(f"Unexpected error in chat endpoint: {e}")
-        raise HTTPException(
+        logger.error(f"Error processing chat request: {e}")
+        return JSONResponse(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail={"code": "INTERNAL_ERROR", "message": str(e)}
-        ) 
+            content={"detail": str(e)}
+        )
 
 @router.get("/visualization")
 async def get_graph_visualization():

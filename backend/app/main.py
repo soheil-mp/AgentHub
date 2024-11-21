@@ -16,12 +16,16 @@ app = FastAPI(
     description="Multi-agent chat system API"
 )
 
-# Setup middleware
+# Setup middleware (includes CORS)
 setup_middleware(app)
 
 # Include routers
 app.include_router(chat.router, prefix=settings.API_V1_STR)
 app.include_router(health.router, prefix="/api/v1", tags=["Health"])
+
+# Add after router includes
+for route in app.routes:
+    logger.info(f"Registered route: {route.path}")
 
 @app.on_event("startup")
 async def startup_event():
@@ -41,7 +45,6 @@ async def startup_event():
         
     except Exception as e:
         logger.error(f"Error initializing services: {e}")
-        # Don't raise - allow app to start without cache/db
 
 @app.on_event("shutdown")
 async def shutdown_event():
